@@ -106,11 +106,17 @@ const Header = () => {
                 </button>
               </form>
 
-              <a href="/wishlist" className="wish">
-                <img src={wishlist} alt="heart" />
+              <a
+                href="/wishlist"
+                className={`wish ${currentPage === "wishlist" ? "active" : ""}`}
+              >
+                <img src={wishlist} alt="heart" width={24} />
               </a>
-              <a href="/cart" className="cart">
-                <img src={cart} alt="cart" />
+              <a
+                href="/cart"
+                className={`cart ${currentPage === "cart" ? "active" : ""}`}
+              >
+                <img src={cart} alt="cart" width={24} />
               </a>
             </div>
           </div>

@@ -140,7 +140,12 @@
 
 .wish,
 .cart {
+  @apply cursor-pointer rounded-full p-1 hover:bg-red-300 duration-200;
   cursor: pointer;
+
+  &.active {
+    background-color: $danger;
+  }
 
   @media (max-width: 991px) {
     filter: contrast(0);
