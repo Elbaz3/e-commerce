@@ -1,0 +1,149 @@
+@use "tailwindcss";
+@use "@styles/mixins" as *;
+@use "@styles/variables" as *;
+
+.header {
+  border-bottom: $light-border;
+  position: relative;
+
+  .header-container {
+    @apply flex flex-col;
+  }
+
+  &__top {
+    @apply flex justify-end gap-[231px] items-center flex-row;
+    color: $dark-text;
+
+    @media (max-width: $md) {
+      @apply text-center flex flex-col gap-2 items-center;
+
+      p {
+        font-size: 8px;
+      }
+    }
+    @media (min-width: $md) and (max-width: $lg) {
+      @apply gap-4 justify-center;
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    &__select {
+      @apply border-0 bg-transparent text-white w-auto;
+
+      .ant-select-content {
+        margin-right: 11px;
+      }
+      .ant-select-suffix {
+        color: white;
+      }
+    }
+
+    &-wrapper {
+      @apply bg-[#000000] py-[12px];
+    }
+
+    p {
+      font-size: $font-sm;
+
+      span {
+        @apply ml-[8px] font-semibold underline;
+      }
+    }
+  }
+
+  &__bottom {
+    @apply flex justify-between pt-[40px] pb-[16px] items-center;
+
+    @media (max-width: $lg) {
+      padding-top: 16px;
+    }
+
+    &__logo {
+      @apply font-bold;
+      font-size: $font-md;
+    }
+
+    &__nav {
+      ul {
+        @apply flex gap-[48px] flex-row;
+
+        // for now
+        li:nth-child(1) a {
+          border-bottom: $light-border;
+          border-bottom-width: 1px;
+        }
+
+        a {
+          @apply py-[7px];
+        }
+      }
+
+      @media (max-width: $lg) {
+        width: 100%;
+        ul {
+          @apply flex-col items-start text-start w-full;
+
+          // for now
+          li:nth-child(1) a {
+            border-bottom: $light-border;
+            border-bottom-width: 1px;
+          }
+
+          a {
+            @apply py-[7px];
+          }
+        }
+      }
+    }
+    &__actions {
+      @apply flex items-center gap-[24px];
+
+      @media (max-width: $lg) {
+        @apply flex-col-reverse w-full items-start;
+      }
+    }
+  }
+
+  &__collaps {
+    @apply flex items-center gap-[150px];
+    transition: 0.3s;
+
+    @media (max-width: $xl) {
+      gap: 60px;
+    }
+
+    @media (max-width: 991px) {
+      @apply absolute h-screen w-screen bg-black top-full right-0 flex-col text-start justify-start p-5;
+      color: $dark-text;
+      transform: translateX(-2000px);
+    }
+  }
+
+  &__search {
+    @apply flex items-center  flex-row gap-[34px] px-[20px]  bg-[#F5F5F5];
+    border-radius: 4px;
+    padding-right: 12px;
+
+    .search-box {
+      @apply py-[10px] outline-0;
+    }
+  }
+}
+
+.wish,
+.cart {
+  @media (max-width: 991px) {
+    filter: contrast(0);
+  }
+}
+
+.menu-hidden {
+  transform: translateX(0);
+}
+.collaps-icon {
+  @media (min-width: $lg) {
+    display: none;
+  }
+}

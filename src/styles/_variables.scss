@@ -10,7 +10,7 @@ $dark-bg: #000000;
 $dark-card: #1f2937;
 $dark-text: #f9fafb;
 $dark-muted: #9ca3af;
-$light-border: 0.5px solid #7a7a7a;
+$dark-border: 0.5px solid #7a7a7a;
 
 // STATUS COLORS
 $primary: #2563eb; // blue-600
@@ -46,6 +46,14 @@ $xxl: 1400px;
 // Container max-widths (Bootstrap 5)
 $container-sm: 540px;
 $container-md: 720px;
-$container-lg: 960px;
+$container-lg: 940px;
 $container-xl: 1170px;
 $container-xxl: 1320px;
+
+// font size
+
+$font-sm: 14px;
+$font-base: 16px;
+$font-md: 24px;
+$font-lg: 36px;
+$font-xl: 48px;

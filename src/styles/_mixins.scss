@@ -1,27 +1,27 @@
 @use "@styles/variables" as *;
 
 @mixin screen-sm {
-  @media (min-width: $sm) {
+  @media (max-width: $sm) {
     @content;
   }
 }
-@mixin screen-md {
-  @media (min-width: $md) {
+@mixin screen-tb {
+  @media (max-width: $md) {
     @content;
   }
 }
-@mixin screen-lg {
-  @media (min-width: $lg) {
+@mixin screen-ss {
+  @media (min-width: $md) and (max-width: $lg) {
     @content;
   }
 }
 @mixin screen-xl {
-  @media (min-width: $xl) {
+  @media (min-width: $lg) and (max-width: $xl) {
     @content;
   }
 }
 @mixin screen-xxl {
-  @media (min-width: $xxl) {
+  @media (min-width: $xl) {
     @content;
   }
 }
