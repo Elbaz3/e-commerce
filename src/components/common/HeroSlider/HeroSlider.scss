@@ -1,0 +1,93 @@
+@use "tailwindcss";
+@use "@styles/mixins" as *;
+@use "@styles/variables" as *;
+
+.slider {
+  @apply w-full;
+
+  &__content {
+    @apply bg-black text-white  px-16 py-[40px] h-[350px] flex items-center justify-between;
+
+    @media (max-width: $md) {
+      @apply h-[450px] flex-col-reverse;
+    }
+  }
+
+  &__text {
+    @apply max-w-xl flex flex-col justify-between;
+
+    &__brand {
+      @apply flex items-center gap-4 mb-6;
+
+      @media (max-width: $lg) {
+        @apply mb-2;
+      }
+
+      .brand-name {
+        @apply text-base;
+      }
+    }
+
+    &__title {
+      @apply text-5xl font-semibold leading-[60px] mb-3;
+
+      @media (max-width: $lg) {
+        @apply text-xl mb-2;
+      }
+    }
+
+    &__btn {
+      @apply flex items-center gap-3  pb-1 text-lg w-fit cursor-pointer duration-200 hover:opacity-[0.5];
+
+      @media (max-width: $lg) {
+        @apply mb-2;
+      }
+
+      span {
+        @apply border-b;
+      }
+    }
+  }
+
+  &__image {
+    @apply h-full object-contain;
+    @media (max-width: $lg) {
+      @apply w-[300px];
+    }
+  }
+}
+
+// HeroSlider.scss
+
+.ant-carousel {
+  .slick-dots {
+    bottom: 20px;
+
+    @media (max-width: $lg) {
+      bottom: 10px;
+    }
+
+    li {
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+
+      button {
+        height: 14px;
+        width: 14px;
+      }
+    }
+
+    li.slick-active {
+      height: 12px;
+      width: 12px;
+      background-color: $danger;
+      outline: 2px solid white;
+
+      &::after {
+        content: "";
+        display: none;
+      }
+    }
+  }
+}

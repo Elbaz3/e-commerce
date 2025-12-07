@@ -1,0 +1,34 @@
+@use "tailwindcss";
+@use "@styles/mixins" as *;
+@use "@styles/variables" as *;
+
+.hero {
+  &__container {
+    @apply flex;
+
+    @media (max-width: $lg) {
+      @apply flex-col;
+    }
+  }
+
+  &__filter {
+    flex: 1;
+    min-width: 0;
+
+    .ant-menu-inline {
+      border-inline-end: 0 !important;
+    }
+  }
+
+  &__slider {
+    @apply py-[40px] pl-[40px];
+
+    border-left: $light-border;
+    flex: 3;
+    min-width: 0;
+
+    @media (max-width: $lg) {
+      @apply border-0 pl-0;
+    }
+  }
+}

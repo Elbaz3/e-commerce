@@ -118,7 +118,7 @@
     }
 
     @media (max-width: 991px) {
-      @apply absolute h-screen w-screen bg-black top-full right-0 flex-col text-start justify-start p-5;
+      @apply absolute h-screen w-screen bg-black top-full right-0 flex-col text-start justify-start p-5 z-[1000];
       color: $dark-text;
       transform: translateX(-2000px);
     }
