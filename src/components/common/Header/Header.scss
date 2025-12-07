@@ -70,13 +70,16 @@
         @apply flex gap-[48px] flex-row;
 
         // for now
-        li:nth-child(1) a {
+        a.active {
           border-bottom: $light-border;
           border-bottom-width: 1px;
         }
 
         a {
-          @apply py-[7px];
+          @apply py-[7px] duration-200 border-b border-b-transparent;
+          &:hover {
+            border-bottom-color: $dark-bg;
+          }
         }
       }
 
@@ -129,11 +132,16 @@
     .search-box {
       @apply py-[10px] outline-0;
     }
+    .search-icon {
+      @apply cursor-pointer;
+    }
   }
 }
 
 .wish,
 .cart {
+  cursor: pointer;
+
   @media (max-width: 991px) {
     filter: contrast(0);
   }

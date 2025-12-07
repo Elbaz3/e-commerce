@@ -1,21 +1,25 @@
-import { Select, Input } from "antd";
+import { Select } from "antd";
 import "./Header.scss";
 import wishlist from "../../../assets/Wishlist.svg";
 import cart from "../../../assets/Cart.svg";
 import search from "../../../assets/search.svg";
 import burger from "../../../assets/collaps-icon.svg";
 import { useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 const { Option } = Select;
 
-type Language = "en" | "ar" | "fr";
+type Language = "en" | "ar";
 
 const Header = () => {
   const menu = useRef<HTMLDivElement | null>(null);
 
+  const navItems = useRef<HTMLUListElement | null>(null);
+  const { pathname } = useLocation();
+  const currentPage = pathname.split("/").pop();
+
   const handleShowIcon = () => {
     if (!menu.current) return;
-
     menu.current.classList.toggle("menu-hidden");
   };
 
@@ -48,24 +52,43 @@ const Header = () => {
       </div>
       <div className="container header-container">
         <div className="header__bottom">
-          <div className="header__bottom__logo">Exclusive</div>
+          <a href="/" className="header__bottom__logo">
+            Exclusive
+          </a>
           <div className="collaps-icon" onClick={handleShowIcon}>
             <img src={burger} alt="burger icon" width={40} />
           </div>
           <div ref={menu} className="header__collaps">
             <div className="header__bottom__nav">
-              <ul>
+              <ul ref={navItems}>
                 <li>
-                  <a href="/">Home</a>
+                  <a href="/" className={!currentPage?.length ? "active" : ""}>
+                    Home
+                  </a>
                 </li>
                 <li>
-                  <a href="/contact">Contact</a>
+                  <a
+                    href="/contact"
+                    className={currentPage === "contact" ? "active" : ""}
+                  >
+                    Contact
+                  </a>
                 </li>
                 <li>
-                  <a href="/about-us">About</a>
+                  <a
+                    href="/about-us"
+                    className={currentPage === "about-us" ? "active" : ""}
+                  >
+                    About
+                  </a>
                 </li>
                 <li>
-                  <a href="/signup">Sign Up</a>
+                  <a
+                    href="/signup"
+                    className={currentPage === "signup" ? "active" : ""}
+                  >
+                    Sign Up
+                  </a>
                 </li>
               </ul>
             </div>
@@ -83,13 +106,12 @@ const Header = () => {
                 </button>
               </form>
 
-              <div className="wish">
+              <a href="/wishlist" className="wish">
                 <img src={wishlist} alt="heart" />
-              </div>
-              <div className="cart">
-                {" "}
+              </a>
+              <a href="/cart" className="cart">
                 <img src={cart} alt="cart" />
-              </div>
+              </a>
             </div>
           </div>
         </div>
