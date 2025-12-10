@@ -1,0 +1,18 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
+
+.row-product {
+  @apply py-6 px-10 shadow-md;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+
+  //   .cart-col-1:first-child span:first-child {
+  //     @apply gap-5 justify-start;
+  //   }
+
+  .cart-col-1 span {
+    @apply flex  items-center justify-center gap-5;
+  }
+}

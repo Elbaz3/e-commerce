@@ -1,0 +1,56 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.wishlist {
+  margin-top: 80px;
+  margin-bottom: 140px;
+
+  &__container {
+    @apply flex flex-col;
+    gap: 80px;
+  }
+
+  &__products {
+    @apply flex flex-col;
+    gap: 60px;
+
+    &__header {
+      @apply flex items-center justify-between;
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+
+      @media (max-width: $md) {
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: $md) and (max-width: $lg) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: $lg) and (max-width: $xl) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+
+  .button-primary {
+    background-color: transparent;
+    color: black;
+    border: $light-border;
+
+    &:hover {
+      background-color: $success;
+    }
+  }
+
+  .add-cart {
+    transform: translate(0);
+  }
+
+  .section-header__text {
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,17 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
+
+.slide-buttons {
+  @apply flex items-center gap-2 w-fit;
+
+  .arrow {
+    @apply rounded-full flex justify-center items-center cursor-pointer hover:bg-red-400;
+    width: 46px;
+    height: 46px;
+    background-color: $light-card;
+    &-r {
+      transform: rotate(180deg);
+    }
+  }
+}

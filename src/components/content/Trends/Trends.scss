@@ -1,0 +1,39 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
+
+.trends {
+  @apply flex flex-col gap-10;
+  min-height: 600px;
+  margin-block: 140px;
+
+  &__container {
+    @apply flex flex-col;
+    gap: 50px;
+  }
+
+  .trend-head {
+    @apply flex justify-between w-full;
+    @media (max-width: $md) {
+      align-items: center;
+    }
+
+    @media (max-width: $md) {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &.best-head {
+      @apply justify-end;
+    }
+  }
+
+  &__products {
+    @apply flex min-w-fit overflow-x-auto;
+    gap: 30px;
+  }
+
+  .wrapper-btn {
+    @apply w-full flex justify-center;
+  }
+}

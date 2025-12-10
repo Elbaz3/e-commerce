@@ -1,0 +1,150 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.check-out {
+  padding: 80px 0 140px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 170px;
+    margin-top: 80px;
+
+    @media (max-width: $lg) {
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
+  }
+
+  &__form {
+    form {
+      @apply flex flex-col gap-8;
+
+      label {
+        @apply flex flex-col gap-2;
+
+        &.check {
+          @apply flex-row items-center text-sm;
+
+          input {
+            padding: 0;
+            height: fit-content;
+          }
+
+          input:checked {
+            accent-color: $danger;
+          }
+        }
+      }
+
+      input {
+        padding: 13px 16px;
+        height: 50px;
+        background-color: #f5f5f5;
+      }
+    }
+  }
+
+  &__submit {
+    @apply flex flex-col gap-8;
+    .review {
+    }
+    .review-products {
+      @apply flex flex-col gap-8;
+      padding-right: 100px;
+
+      @media (max-width: $lg) {
+        padding-right: 0;
+      }
+    }
+
+    .products-details {
+      @apply flex flex-col gap-8;
+    }
+
+    .product-details {
+      @apply flex items-center justify-between;
+    }
+    .image-name {
+      @apply flex items-center gap-6;
+
+      img {
+        height: 54px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .cart-details {
+    @apply flex flex-col w-full  gap-6;
+    border: 0;
+
+    @media (max-width: $md) {
+      width: 100%;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .button-primary {
+      margin-inline: auto;
+    }
+  }
+
+  .cart-details-wrapper {
+    & > .detail {
+      @apply flex justify-between py-4;
+    }
+    & > *:not(:last-child) {
+      border-bottom: $light-border;
+    }
+  }
+
+  .billing-details {
+    @apply flex flex-col gap-8;
+
+    label {
+      @apply flex gap-4 items-center;
+
+      &.bank {
+        justify-content: space-between;
+      }
+    }
+
+    .wrap-radio {
+      @apply flex gap-4 items-center;
+    }
+
+    .logos {
+      @apply flex gap-2;
+    }
+  }
+
+  .promo {
+    @apply flex h-fit gap-4 mt-8;
+
+    input {
+      width: 100%;
+      outline: none;
+      border: $light-border;
+      padding: 16px 24px;
+
+      @media (max-width: $md) {
+        width: 100%;
+      }
+    }
+
+    .button-primary {
+      white-space: nowrap;
+      @media (max-width: $md) {
+        width: 100%;
+        padding-inline: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

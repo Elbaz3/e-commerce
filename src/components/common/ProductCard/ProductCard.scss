@@ -1,0 +1,77 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
+
+.product-card {
+  min-width: 270px;
+
+  &__top {
+    @apply w-full  flex justify-between flex-col relative rounded-sm truncate;
+    height: 250px;
+
+    .icon-wrapper {
+      @apply flex justify-between p-3;
+    }
+
+    &:hover {
+      .add-cart {
+        transform: translateY(0px);
+      }
+    }
+  }
+  .product-image {
+    background-color: $light-card;
+  }
+
+  &__discount {
+    @apply py-1 px-3 rounded-sm text-xs absolute left-3 top-3;
+    color: $light-bg;
+    background-color: $danger;
+    &.new-bg {
+      background-color: $success;
+    }
+  }
+
+  &__action {
+    @apply flex flex-col gap-2 absolute right-3 top-3;
+  }
+
+  .add-cart {
+    @apply w-full h-10 bg-black text-white flex items-center justify-center cursor-pointer hover:bg-black/60 duration-200;
+
+    transition: transform 0.3s ease;
+    transform: translateY(60px);
+  }
+
+  &__bottom {
+    @apply flex flex-col gap-2 mt-4;
+
+    .product-title {
+      @apply font-medium;
+    }
+
+    .product-price {
+      @apply flex gap-[12px];
+
+      .new-price {
+        color: $danger;
+      }
+
+      .old-price {
+        color: rgb(118, 118, 118);
+        text-decoration: line-through;
+      }
+    }
+
+    .product-rate {
+      @apply flex gap-2;
+
+      .stars-rate {
+        @apply flex gap-1;
+      }
+      .reviews-rate {
+        color: rgb(118, 118, 118);
+      }
+    }
+  }
+}

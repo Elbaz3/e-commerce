@@ -1,0 +1,64 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.offer {
+  margin-block: 50px;
+  &__container {
+    @apply bg-black text-white;
+    padding-block: 69px;
+    padding-inline-start: 56px;
+
+    @media (max-width: $md) {
+      padding-block: 20px;
+      padding-inline: 30px;
+    }
+  }
+
+  &__content {
+    @apply flex items-center relative;
+
+    @media (max-width: $xl) {
+      flex-direction: column;
+    }
+
+    .product-image {
+      position: relative;
+      z-index: 1;
+      width: 50%;
+      right: 60px;
+      left: auto;
+      @media (max-width: $xl) {
+        margin-top: 30px;
+        margin-inline: auto;
+        right: auto;
+      }
+    }
+
+    &__text {
+      @apply flex flex-col gap-8 relative;
+      width: 50%;
+      z-index: 6;
+
+      .offer-title {
+        @apply font-semibold text-base;
+        color: #00ff66;
+      }
+      .offer-head {
+        @apply font-semibold text-5xl;
+        line-height: 60px;
+
+        @media (max-width: $md) {
+          font-size: 24px;
+        }
+      }
+    }
+
+    &__image {
+      @apply w-full bg-no-repeat bg-right bg-contain;
+      min-height: 300px;
+      @media (max-width: $xl) {
+        @apply bg-center;
+      }
+    }
+  }
+}

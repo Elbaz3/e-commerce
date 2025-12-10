@@ -1,7 +1,11 @@
-import React from "react";
+import Billing from "@components/content/Billing/Billing";
 
 const Checkout = () => {
-  return <div>Checkout</div>;
+  return (
+    <>
+      <Billing />
+    </>
+  );
 };
 
 export default Checkout;

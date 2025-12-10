@@ -1,0 +1,82 @@
+import cover from "@assets/cover.png?w=900&format=webp&quality=90";
+import google from "@assets/google.svg?w=900&format=webp&quality=90";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import "./SignUp.scss";
+import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
+import { signupSchema } from "@util/schemas";
+
+const schema = signupSchema;
+
+const SignUpC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  return (
+    <div className="sign-up">
+      <div className="container sign-up__container">
+        <div className="sign-up__image">
+          <img
+            src={cover}
+            alt="mobile and shopping basket"
+            width={900}
+            height={780}
+          />
+        </div>
+        <div className="sign-up__form">
+          <div className="form-header">
+            <h2>Create an account</h2>
+            <p>Enter your details below</p>
+          </div>
+          <form>
+            <label>
+              <input type="text" placeholder="Name" {...register("name")} />
+            </label>
+            <label>
+              <input
+                placeholder="Email or phone number"
+                {...register("contact", {
+                  required: "Required",
+                  validate: (value) =>
+                    /\S+@\S+\.\S+/.test(value) || /^[0-9]{10,15}$/.test(value)
+                      ? true
+                      : "Enter a valid email or phone number",
+                })}
+              />
+            </label>
+            <label>
+              <input
+                type="password"
+                placeholder="Password"
+                {...register("password")}
+              />
+            </label>
+
+            <button type="submit" className="button-primary btn-form">
+              Create Account
+            </button>
+          </form>
+          <div className="form-footer">
+            <ButtonPrim
+              to="/"
+              value="Sign up with Google"
+              style="form-btn"
+              logo={<img src={google} width={24} height={24} />}
+            />
+            <div className="footer-text">
+              <p>Already have account?</p>
+              <a href="/login"> Log in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SignUpC;

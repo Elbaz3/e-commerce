@@ -1,28 +1,32 @@
-@use "tailwindcss";
+@use "@styles/tw";
 @use "@styles/mixins" as *;
 @use "@styles/variables" as *;
 
 .footer {
   background-color: $dark-bg;
   color: $dark-text;
+  min-height: 420px;
 
   &__container {
   }
 
   &__content {
-    @apply grid items-start justify-between  py-[80px] grid-cols-5 gap-[40px];
+    @apply grid items-start justify-between py-20  gap-10;
+
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(120px, auto);
 
     @media (min-width: $lg) and (max-width: $xl) {
-      @apply grid-cols-4;
+      grid-template-columns: repeat(4, 1fr);
     }
     @media (min-width: $sm) and (max-width: $md) {
-      @apply grid-cols-2;
+      grid-template-columns: repeat(2, 1fr);
     }
     @media (min-width: $md) and (max-width: $lg) {
-      @apply grid-cols-3;
+      grid-template-columns: repeat(3, 1fr);
     }
     @media (max-width: $sm) {
-      @apply grid-cols-1;
+      grid-template-columns: 1fr;
     }
 
     a {
@@ -30,17 +34,17 @@
     }
 
     .footer-col {
-      @apply flex flex-col gap-[16px] text-base;
+      @apply flex flex-col gap-4 text-base;
     }
 
     .footer-title {
-      @apply text-2xl font-bold mb-[8px];
+      @apply text-2xl font-bold mb-2;
     }
     .footer-subs {
       @apply text-xl font-medium;
     }
     .footer-email {
-      @apply flex items-center flex-row justify-between border border-white py-[12px] px-[16px] rounded-sm max-w-[200px];
+      @apply flex items-center flex-row justify-between border border-white py-3 px-4 rounded-sm w-[200px];
 
       input {
         @apply outline-0 w-fit text-base;
@@ -48,13 +52,12 @@
         min-width: 0;
       }
       img {
-        width: 24px;
         flex: 1;
         min-width: 0;
       }
     }
     .socials {
-      @apply flex gap-[24px];
+      @apply flex gap-6;
     }
     .offer-text {
       @apply text-xs;
@@ -64,7 +67,7 @@
     }
   }
   .copyright {
-    @apply text-center w-full m-auto py-[24px] opacity-40;
+    @apply text-center w-full m-auto py-6 opacity-40;
     color: $light-bg;
   }
 }

@@ -1,0 +1,84 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.sign-up {
+  padding: 60px 0 140px;
+
+  &__container {
+    @apply flex items-center justify-between gap-10;
+  }
+
+  &__image {
+    max-width: 800px;
+
+    @media (max-width: $xl) {
+      max-width: 500px;
+    }
+    @media (max-width: $lg) {
+      display: none;
+    }
+  }
+
+  &__form {
+    @apply flex flex-col gap-4;
+
+    @media (max-width: $lg) {
+      width: 100%;
+    }
+
+    .form-header {
+      @apply mb-8;
+
+      h2 {
+        @apply text-4xl font-medium;
+      }
+
+      p {
+        @apply text-base mt-6;
+      }
+    }
+
+    form {
+      @apply flex flex-col items-start gap-10;
+
+      label {
+        width: 100%;
+      }
+
+      input {
+        width: 100%;
+        padding-bottom: 8px;
+        border-bottom: $light-border;
+        outline: none;
+      }
+    }
+
+    .form-footer {
+      @apply flex flex-col gap-8;
+
+      .footer-text {
+        @apply flex gap-4;
+
+        a {
+          border-bottom: $light-border;
+          border-bottom-width: 1px;
+        }
+      }
+    }
+  }
+
+  .button-primary {
+    width: 100%;
+
+    &.form-btn {
+      display: flex;
+      gap: 16px;
+      background-color: transparent;
+      border: $light-border;
+      color: black;
+      &:hover {
+        background-color: $success;
+      }
+    }
+  }
+}

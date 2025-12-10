@@ -1,0 +1,82 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.contact {
+  margin: 80px 0 140px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 80px;
+
+    @media (max-width: $xl) {
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
+  }
+
+  &__info {
+    @apply shadow-sm;
+    padding: 40px 35px;
+
+    &__box {
+      @apply flex flex-col gap-6;
+
+      &:first-child {
+        border-bottom: $light-border;
+        padding-bottom: 32px;
+      }
+      &:last-child {
+        padding-top: 32px;
+      }
+
+      .top {
+        @apply flex gap-4;
+
+        .image {
+          padding: 10px;
+          background-color: $danger;
+          border-radius: 50%;
+          height: 40px;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  &__form {
+    @apply p-8 shadow-sm;
+
+    form {
+      @apply flex flex-col gap-8;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label input,
+    label textarea {
+      background-color: #f5f5f5;
+      padding: 13px 16px;
+      width: 100%;
+      outline: none;
+    }
+
+    .top-inputs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+
+      @media (max-width: $md) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

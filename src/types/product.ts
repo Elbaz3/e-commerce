@@ -1,12 +1,17 @@
 export type TProduct = {
-  id?: number;
+  id: number;
   title: string;
   price: number;
-  cat_prefix?: string;
   img: string;
-  max?: number;
-  quantity?: number;
-  isLiked?: boolean;
-  isAuthenticated?: boolean;
-  userId?: number | null;
+  quantity: number;
+  isLiked: boolean;
+  isAuthenticated: boolean;
+  userId: number | null;
+};
+
+export type TOrder = {
+  id: number;
+  userId: number;
+  subtotal: number;
+  items: TProduct[];
 };

@@ -1,0 +1,13 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.log-in {
+  .form-footer {
+    flex-direction: row;
+    align-items: center;
+    a {
+      color: $danger;
+      white-space: nowrap;
+    }
+  }
+}

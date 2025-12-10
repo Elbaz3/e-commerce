@@ -1,0 +1,103 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.product-act {
+  @apply max-w-md mx-auto space-y-6;
+
+  .product-title {
+    @apply text-2xl font-bold;
+  }
+
+  .product-state {
+    @apply flex items-center gap-2 text-sm text-gray-500;
+  }
+
+  .stars {
+    @apply flex gap-1;
+  }
+
+  .stock-state {
+    font-weight: 500;
+    color: $success;
+  }
+
+  .product-price {
+    @apply text-3xl font-semibold;
+  }
+
+  .product-desc {
+    @apply text-gray-600 text-sm;
+  }
+
+  .product-colors {
+    @apply font-semibold mb-2;
+  }
+
+  .colors-list {
+    @apply flex gap-3;
+  }
+
+  .color-btn {
+    @apply w-4 h-4 rounded-full border border-white cursor-pointer;
+  }
+
+  .size-title {
+    @apply font-semibold mb-2;
+  }
+
+  .size-list {
+    @apply flex gap-2;
+  }
+
+  .size {
+    @apply cursor-pointer;
+    &-active {
+      @apply text-white;
+      background-color: $danger;
+      border-color: $danger;
+    }
+  }
+
+  .size-box {
+    @apply px-3 py-1 rounded border;
+  }
+
+  .quantity {
+    @apply flex items-center gap-3;
+  }
+
+  .quantity-box {
+    @apply flex items-center border rounded;
+  }
+
+  .btn-quantity {
+    @apply px-3 py-2 cursor-pointer;
+  }
+
+  .button-primary {
+    padding-block: 10px;
+  }
+
+  .add-wish {
+    @apply p-2 border rounded cursor-pointer;
+  }
+
+  .delivery {
+    @apply border rounded p-6 space-y-4;
+  }
+  .return-info {
+    @apply flex items-start gap-3;
+  }
+
+  .icon {
+    @apply text-2xl rotate-180;
+  }
+
+  .desc {
+    @apply text-sm;
+  }
+
+  .trends__products {
+    @apply gap-8;
+  }
+}

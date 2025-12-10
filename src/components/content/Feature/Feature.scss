@@ -1,0 +1,84 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.feature {
+  margin-block: 70px;
+
+  &__content {
+    @apply w-full;
+
+    &__top {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 60px;
+      margin-bottom: 140px;
+
+      /* Parent should NOT control exact height */
+      min-height: 600px;
+
+      @media (max-width: $lg) {
+        grid-template-columns: 1fr;
+        min-height: auto; /* children now control it */
+      }
+
+      .left {
+        min-height: 100%;
+
+        @media (max-width: $lg) {
+          height: 500px;
+        }
+      }
+
+      .right {
+        @apply flex flex-col;
+        gap: 30px;
+
+        @media (max-width: $md) {
+          height: auto; /* important: no more 1500px */
+        }
+      }
+
+      .right-top {
+        height: 50%;
+
+        @media (max-width: $lg) {
+          height: 500px;
+        }
+      }
+
+      .right-bottom {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        height: 50%;
+
+        @media (max-width: $md) {
+          height: 1000px;
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+
+    &__bottom {
+      @apply flex justify-between;
+
+      @media (max-width: $lg) {
+        @apply flex-col items-center;
+        gap: 50px;
+      }
+
+      .bottom-item {
+        @apply flex flex-col items-center gap-6;
+      }
+
+      .text {
+        @apply flex flex-col gap-2 items-center text-center;
+
+        h3 {
+          @apply text-xl font-semibold;
+        }
+      }
+    }
+  }
+}

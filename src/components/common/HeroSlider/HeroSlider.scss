@@ -1,4 +1,4 @@
-@use "tailwindcss";
+@use "@styles/tw";
 @use "@styles/mixins" as *;
 @use "@styles/variables" as *;
 
@@ -6,10 +6,13 @@
   @apply w-full;
 
   &__content {
-    @apply bg-black text-white  px-16 py-[40px] h-[350px] flex items-center justify-between;
+    @apply bg-black text-white px-16 py-10 flex items-center justify-between;
+
+    min-height: 450px;
 
     @media (max-width: $md) {
-      @apply h-[450px] flex-col-reverse;
+      height: 450px;
+      flex-direction: column-reverse;
     }
   }
 
@@ -20,27 +23,33 @@
       @apply flex items-center gap-4 mb-6;
 
       @media (max-width: $lg) {
-        @apply mb-2;
+        margin-bottom: 8px;
       }
 
       .brand-name {
-        @apply text-base;
+        font-size: 16px;
       }
     }
 
     &__title {
-      @apply text-5xl font-semibold leading-[60px] mb-3;
+      @apply text-5xl font-semibold  mb-3;
+      line-height: 60px;
 
       @media (max-width: $lg) {
-        @apply text-xl mb-2;
+        font-size: 20px;
+        margin-bottom: 8px;
       }
     }
 
     &__btn {
-      @apply flex items-center gap-3  pb-1 text-lg w-fit cursor-pointer duration-200 hover:opacity-[0.5];
+      @apply flex items-center gap-3  pb-1 text-lg w-fit cursor-pointer duration-200;
+
+      &:hover {
+        opacity: 0.5;
+      }
 
       @media (max-width: $lg) {
-        @apply mb-2;
+        margin-bottom: 8px;
       }
 
       span {
@@ -50,9 +59,10 @@
   }
 
   &__image {
-    @apply h-full object-contain;
+    object-fit: cover;
+    height: 300px;
     @media (max-width: $lg) {
-      @apply w-[300px];
+      width: 300px;
     }
   }
 }

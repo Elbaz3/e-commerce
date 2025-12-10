@@ -30,8 +30,9 @@ const Footer = () => {
               <img
                 className="footer-submit"
                 src={arrow}
-                alt="submit botton"
-                width={24}
+                alt="submit"
+                width="24"
+                height="24"
               />
             </li>
           </ul>

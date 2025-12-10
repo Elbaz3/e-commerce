@@ -1,8 +1,9 @@
-@use "tailwindcss";
+@use "@styles/tw";
 @use "@styles/mixins" as *;
 @use "@styles/variables" as *;
 
 .hero {
+  min-height: 500px;
   &__container {
     @apply flex;
 
@@ -18,10 +19,14 @@
     .ant-menu-inline {
       border-inline-end: 0 !important;
     }
+    .ant-menu-submenu-title,
+    .ant-menu-item.ant-menu-item-only-child {
+      padding-left: 0 !important;
+    }
   }
 
   &__slider {
-    @apply py-[40px] pl-[40px];
+    @apply py-10 pl-10;
 
     border-left: $light-border;
     flex: 3;

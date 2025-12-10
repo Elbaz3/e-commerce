@@ -1,6 +1,9 @@
-import { Menu } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
-import { RightOutlined } from "@ant-design/icons";
+import { lazy, Suspense } from "react";
+
+const Menu = lazy(() =>
+  import("antd/lib/menu").then((m) => ({ default: m.default }))
+);
 
 const categories = [
   {
@@ -51,39 +54,41 @@ const CategoryFilter = () => {
   const currentKey = pathname.split("/").pop();
 
   return (
-    <Menu
-      mode="inline"
-      selectedKeys={[currentKey || ""]}
-      className="border-none bg-transparent"
-      onClick={({ key }) => navigate(`/categories/products/${key}`)}
-      items={categories.map((item) => {
-        // If it has dropdown
-        if (item.children) {
+    <Suspense fallback={<div className="h-24" />}>
+      <Menu
+        mode="inline"
+        selectedKeys={[currentKey || ""]}
+        className="border-none bg-transparent"
+        onClick={({ key }) => navigate(`/categories/products/${key}`)}
+        items={categories.map((item) => {
+          // If it has dropdown
+          if (item.children) {
+            return {
+              key: item.key,
+              label: (
+                <div className="flex items-center justify-between">
+                  <span>{item.label}</span>
+                </div>
+              ),
+              children: item.children.map((child) => ({
+                key: child.toLowerCase(),
+                label: child,
+                onClick: () =>
+                  navigate(
+                    `/categories/products/${item.key}/${child.toLowerCase()}`
+                  ),
+              })),
+            };
+          }
+
+          // Normal item
           return {
             key: item.key,
-            label: (
-              <div className="flex items-center justify-between">
-                <span>{item.label}</span>
-              </div>
-            ),
-            children: item.children.map((child) => ({
-              key: child.toLowerCase(),
-              label: child,
-              onClick: () =>
-                navigate(
-                  `/categories/products/${item.key}/${child.toLowerCase()}`
-                ),
-            })),
+            label: item.label,
           };
-        }
-
-        // Normal item
-        return {
-          key: item.key,
-          label: item.label,
-        };
-      })}
-    />
+        })}
+      />
+    </Suspense>
   );
 };
 

@@ -1,0 +1,42 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.stats-box {
+  @apply flex flex-col gap-3 items-center justify-center rounded-sm duration-200;
+  padding: 30px 50px;
+  border: $light-border;
+
+  &:hover {
+    background-color: $danger;
+    border-color: white;
+    color: white;
+
+    .image-wrapper-1 {
+      @apply bg-stone-300/60;
+    }
+    .image-wrapper-2 {
+      @apply bg-white;
+    }
+    img {
+      filter: invert(1);
+    }
+  }
+
+  .image-wrapper-1 {
+    @apply rounded-full bg-stone-400;
+    padding: 10px;
+  }
+  .image-wrapper-2 {
+    @apply rounded-full bg-black;
+    padding: 10px;
+  }
+
+  .stats-title {
+    @apply text-3xl font-bold mt-3;
+  }
+
+  .stats-desc {
+    text-align: center;
+    white-space: nowrap;
+  }
+}

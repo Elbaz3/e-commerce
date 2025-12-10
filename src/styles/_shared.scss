@@ -1,3 +1,4 @@
+@use "@styles/tw";
 @use "@styles/variables" as *;
 
 .container {
@@ -23,5 +24,25 @@
 
   @media (min-width: $xl) {
     max-width: $container-xl;
+  }
+}
+
+.product-image {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  z-index: -1;
+}
+
+.button-primary {
+  @apply py-4 px-12 w-fit text-white  cursor-pointer rounded-sm hover:bg-red-400 duration-200;
+  background-color: $danger;
+
+  @media (max-width: $lg) {
+    padding-block: 12px;
+    padding-inline: 34px;
   }
 }

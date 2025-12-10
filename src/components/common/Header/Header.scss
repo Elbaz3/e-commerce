@@ -1,4 +1,4 @@
-@use "tailwindcss";
+@use "@styles/tw";
 @use "@styles/mixins" as *;
 @use "@styles/variables" as *;
 
@@ -11,19 +11,19 @@
   }
 
   &__top {
-    @apply flex justify-end gap-[231px] items-center flex-row;
+    @apply flex justify-end items-center;
+    gap: 231px;
     color: $dark-text;
 
     @media (max-width: $md) {
-      @apply text-center flex flex-col gap-2 items-center;
-
+      @apply text-center flex-col items-center gap-2;
       p {
         font-size: 8px;
       }
     }
-    @media (min-width: $md) and (max-width: $lg) {
-      @apply gap-4 justify-center;
 
+    @media (min-width: $md) and (max-width: $lg) {
+      @apply justify-center gap-4;
       p {
         font-size: 12px;
       }
@@ -36,28 +36,29 @@
         margin-right: 11px;
       }
       .ant-select-suffix {
-        color: white;
+        @apply text-white;
       }
     }
 
     &-wrapper {
-      @apply bg-[#000000] py-[12px];
+      @apply py-3;
+      background-color: $dark-bg;
     }
 
     p {
       font-size: $font-sm;
 
       span {
-        @apply ml-[8px] font-semibold underline;
+        @apply ml-2 font-semibold underline;
       }
     }
   }
 
   &__bottom {
-    @apply flex justify-between pt-[40px] pb-[16px] items-center;
+    @apply flex justify-between pt-10 pb-4 items-center;
 
     @media (max-width: $lg) {
-      padding-top: 16px;
+      @apply pt-4;
     }
 
     &__logo {
@@ -67,41 +68,39 @@
 
     &__nav {
       ul {
-        @apply flex gap-[48px] flex-row;
-
-        // for now
-        a.active {
-          border-bottom: $light-border;
-          border-bottom-width: 1px;
-        }
+        @apply flex gap-12;
 
         a {
-          @apply py-[7px] duration-200 border-b border-b-transparent;
-          &:hover {
-            border-bottom-color: $dark-bg;
-          }
+          @apply duration-200 border-b border-b-transparent py-[7px];
+        }
+
+        a::after {
+          content: "";
+          display: block;
+          height: 2px;
+          width: 0;
+          background: $dark-bg;
+          transition: 0.3s;
+        }
+        a.active::after,
+        a:hover::after {
+          width: 100%;
         }
       }
 
       @media (max-width: $lg) {
-        width: 100%;
+        @apply w-full;
         ul {
-          @apply flex-col items-start text-start w-full;
-
-          // for now
-          li:nth-child(1) a {
-            border-bottom: $light-border;
-            border-bottom-width: 1px;
-          }
-
+          @apply flex-col items-start text-center w-full;
           a {
             @apply py-[7px];
           }
         }
       }
     }
+
     &__actions {
-      @apply flex items-center gap-[24px];
+      @apply flex items-center gap-6;
 
       @media (max-width: $lg) {
         @apply flex-col-reverse w-full items-start;
@@ -110,27 +109,30 @@
   }
 
   &__collaps {
-    @apply flex items-center gap-[150px];
-    transition: 0.3s;
+    @apply flex items-center transition-all;
+    gap: 150px;
 
     @media (max-width: $xl) {
       gap: 60px;
     }
 
     @media (max-width: 991px) {
-      @apply absolute h-screen w-screen bg-black top-full right-0 flex-col text-start justify-start p-5 z-[1000];
+      @apply absolute min-h-screen w-screen top-full right-0 flex-col text-start justify-start p-5 z-[1000];
+      background-color: $dark-bg;
       color: $dark-text;
-      transform: translateX(-2000px);
+      transform: translateX(-100%);
+      will-change: transform;
     }
   }
 
   &__search {
-    @apply flex items-center  flex-row gap-[34px] px-[20px]  bg-[#F5F5F5];
-    border-radius: 4px;
+    @apply flex items-center px-5 rounded bg-[#f5f5f5];
+    min-width: 240px;
+    gap: 34px; // custom
     padding-right: 12px;
 
     .search-box {
-      @apply py-[10px] outline-0;
+      @apply outline-0 py-[10px];
     }
     .search-icon {
       @apply cursor-pointer;
@@ -141,7 +143,6 @@
 .wish,
 .cart {
   @apply cursor-pointer rounded-full p-1 hover:bg-red-300 duration-200;
-  cursor: pointer;
 
   &.active {
     background-color: $danger;
@@ -152,11 +153,12 @@
   }
 }
 
-.menu-hidden {
+.show-menu {
   transform: translateX(0);
 }
+
 .collaps-icon {
   @media (min-width: $lg) {
-    display: none;
+    @apply hidden;
   }
 }

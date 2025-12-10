@@ -1,0 +1,47 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
+
+.section-header {
+  @apply flex items-end;
+
+  gap: 87px;
+
+  @media (max-width: $md) {
+    gap: 20px;
+  }
+
+  &__text {
+    @apply flex flex-col gap-6;
+
+    &__title {
+      @apply text-base font-semibold flex items-center;
+      gap: 10px;
+      color: $danger;
+
+      @media (max-width: $md) {
+        @apply text-sm;
+      }
+
+      &::before {
+        content: "";
+        @apply w-5 h-10 rounded-sm;
+        background-color: $danger;
+      }
+    }
+    &__sub-title {
+      @apply font-semibold;
+      line-height: 48px;
+      font-size: 36px;
+
+      @media (max-width: $md) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__content {
+    @apply flex items-end justify-end;
+    flex: 1;
+  }
+}

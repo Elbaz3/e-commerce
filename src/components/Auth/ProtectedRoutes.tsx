@@ -2,7 +2,7 @@ import { useAppSelector } from "@store/hook";
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { accessToken } = useAppSelector((state) => state.auth);
+  const { accessToken } = useAppSelector((state) => state.authSlice);
 
   if (!accessToken) {
     return <Navigate to="/login?message=login_required" />;

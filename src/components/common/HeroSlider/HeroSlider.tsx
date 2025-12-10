@@ -1,8 +1,12 @@
-import { Carousel } from "antd";
 import iphone from "@assets/iphone.png";
 import apple from "@assets/apple.png";
 import arrow from "@assets/slider-icon.svg";
 import "./HeroSlider.scss";
+import { lazy, Suspense } from "react";
+
+const Carousel = lazy(() =>
+  import("antd/lib/carousel").then((m) => ({ default: m.default }))
+);
 
 const heroSlides = [
   {
@@ -30,34 +34,40 @@ const heroSlides = [
 
 const HeroSlider = () => {
   return (
-    <Carousel autoplay dots className="slider ">
-      {heroSlides.map((slide) => (
-        <div key={slide.id}>
-          <div className=" slider__content ">
-            {/* LEFT CONTENT */}
-            <div className="slider__text">
-              <div className="slider__text__brand">
-                <img src={apple} width={40} alt={slide.brand} />
-                <span className="brand-names">{slide.subtitle}</span>
+    <Suspense fallback={<div className="h-[400px]" />}>
+      <Carousel autoplay dots className="slider ">
+        {heroSlides.map((slide) => (
+          <div key={slide.id}>
+            <div className=" slider__content ">
+              {/* LEFT CONTENT */}
+              <div className="slider__text">
+                <div className="slider__text__brand">
+                  <img src={apple} width={40} alt={slide.brand} />
+                  <span className="brand-names">{slide.subtitle}</span>
+                </div>
+
+                <h1 className="slider__text__title">{slide.title}</h1>
+
+                <button className="slider__text__btn">
+                  <span>Shop Now</span>
+                  <img src={arrow} alt="arrow" />
+                </button>
               </div>
 
-              <h1 className="slider__text__title">{slide.title}</h1>
-
-              <button className="slider__text__btn">
-                <span>Shop Now</span> <img src={arrow} alt="arrow" />
-              </button>
+              {/* RIGHT IMAGE */}
+              <img
+                src={slide.image}
+                alt={slide.subtitle}
+                className="slider__image"
+                width="400"
+                height="300"
+                decoding="async"
+              />
             </div>
-
-            {/* RIGHT IMAGE */}
-            <img
-              src={slide.image}
-              alt={slide.subtitle}
-              className="slider__image"
-            />
           </div>
-        </div>
-      ))}
-    </Carousel>
+        ))}
+      </Carousel>
+    </Suspense>
   );
 };
 

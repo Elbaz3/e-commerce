@@ -1,0 +1,118 @@
+import img1 from "@assets/p-1.png?w=800&format=webp&quality=80";
+import img2 from "@assets/p-2.png?w=800&format=webp&quality=80";
+import img3 from "@assets/p-3.png?w=800&format=webp&quality=80";
+import img4 from "@assets/p-4.png?w=800&format=webp&quality=80";
+
+export const billingProducts = [
+  {
+    id: 1,
+    title: "HAVIT HV-G92 Gamepad",
+    price: 160,
+    quantity: 3,
+    image: img1,
+  },
+  {
+    id: 2,
+    title: "RGB Mechanical Keyboard",
+    price: 120,
+    quantity: 1,
+    image: img2,
+  },
+  {
+    id: 3,
+    title: "Wireless Gaming Mouse",
+    price: 10,
+    quantity: 2,
+    image: img3,
+  },
+  {
+    id: 4,
+    title: "27-inch Gaming Monitor",
+    price: 130,
+    quantity: 5,
+    image: img4,
+  },
+];
+
+export const bestProducts = [
+  {
+    id: 1,
+    title: "HAVIT HV-G92 Gamepad",
+    oldPrice: 160,
+    newPrice: 120,
+    discount: -40,
+    reviews: 88,
+    stars: 5,
+    image: img1,
+  },
+  {
+    id: 2,
+    title: "RGB Mechanical Keyboard",
+    oldPrice: 220,
+    newPrice: 165,
+    discount: -25,
+    reviews: 134,
+    stars: 4,
+    image: img2,
+  },
+  {
+    id: 3,
+    title: "Wireless Gaming Mouse",
+    oldPrice: 90,
+    newPrice: 59,
+    discount: -35,
+    reviews: 212,
+    stars: 5,
+    image: img3,
+  },
+  {
+    id: 4,
+    title: "27-inch Gaming Monitor",
+    oldPrice: 400,
+    newPrice: 310,
+    discount: -23,
+    reviews: 76,
+    stars: 4,
+    image: img4,
+  },
+  {
+    id: 5,
+    title: "Pro Headset with Mic",
+    oldPrice: 150,
+    newPrice: 115,
+    discount: -22,
+    reviews: 180,
+    stars: 4,
+    image: img1,
+  },
+  {
+    id: 6,
+    title: "Compact Bluetooth Speaker",
+    oldPrice: 110,
+    newPrice: 85,
+    discount: -23,
+    reviews: 98,
+    stars: 5,
+    image: img3,
+  },
+  {
+    id: 7,
+    title: "4K Action Camera",
+    oldPrice: 310,
+    newPrice: 260,
+    discount: -16,
+    reviews: 67,
+    stars: 4,
+    image: img4,
+  },
+  {
+    id: 8,
+    title: "Noise Cancelling Headphones",
+    oldPrice: 275,
+    newPrice: 210,
+    discount: -24,
+    reviews: 154,
+    stars: 5,
+    image: img2,
+  },
+];

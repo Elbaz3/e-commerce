@@ -1,0 +1,43 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.product-p {
+  padding: 80px 0 140px;
+
+  &__container {
+    margin-top: 80px;
+  }
+
+  .trends__products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (min-width: $md) and (max-width: $xl) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__overview {
+    @apply grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-[70px] mb-[140px] max-lg:items-center;
+
+    &__images {
+      @apply flex gap-[30px] max-lg:flex-col h-full;
+
+      .small-images {
+        @apply flex  lg:flex-col gap-4 h-full justify-between;
+      }
+
+      .image-s,
+      .big-image {
+        @apply flex items-center h-full justify-center bg-[#F5F5F5] py-4 px-4 lg:py-5 lg:px-[30px] rounded-sm;
+      }
+
+      img {
+        object-fit: scale-down;
+      }
+    }
+  }
+}

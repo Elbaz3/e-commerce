@@ -1,0 +1,15 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+@use "@styles/mixins" as *;
+
+.categories-list {
+  &__header {
+    @apply flex justify-between items-end;
+  }
+
+  &__content {
+    @apply min-w-fit flex border-b border-black;
+    padding-block: 60px;
+    gap: 30px;
+  }
+}

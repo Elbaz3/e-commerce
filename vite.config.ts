@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { imagetools } from "vite-imagetools";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   resolve: {
@@ -19,5 +21,5 @@ export default defineConfig({
       "@validations": path.resolve(__dirname, "./src/validations"),
     },
   },
-  plugins: [react()],
+  plugins: [react(), imagetools(), tailwindcss()],
 });

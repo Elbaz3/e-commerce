@@ -1,0 +1,23 @@
+@use "@styles/tw";
+@use "@styles/variables" as *;
+
+.category-card {
+  @apply flex flex-col justify-between gap-4 py-6 rounded-sm border w-fit cursor-pointer duration-200 items-center text-center;
+  max-width: 170px;
+  padding-inline: 57px;
+  p {
+    @apply whitespace-nowrap;
+  }
+  &:hover {
+    @apply border-white;
+    background-color: $danger;
+
+    img {
+      filter: invert(1);
+    }
+
+    p {
+      color: white;
+    }
+  }
+}

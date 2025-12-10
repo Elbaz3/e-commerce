@@ -3,9 +3,6 @@ import { lazy } from "react";
 
 // layouts
 const MainLayout = lazy(() => import("@layouts/MainLayout/MainLayout"));
-const ProfileLayout = lazy(
-  () => import("@layouts/ProfileLayout/ProfileLayout")
-);
 
 // pages
 const Home = lazy(() => import("@pages/Home"));
@@ -21,6 +18,7 @@ const Orders = lazy(() => import("@pages/Orders"));
 const Checkout = lazy(() => import("@pages/Checkout"));
 const Payment = lazy(() => import("@pages/Payment"));
 const Contact = lazy(() => import("@pages/Contact"));
+const Profile = lazy(() => import("@pages/Profile"));
 
 import Error from "@pages/Error";
 import PageSuspenseFallback from "@components/feedback/PageSuspenseFallback/PageSuspenseFallback";
@@ -34,7 +32,11 @@ const router = createBrowserRouter([
         <MainLayout />
       </PageSuspenseFallback>
     ),
-    errorElement: <Error />,
+    errorElement: (
+      <PageSuspenseFallback>
+        <Error />
+      </PageSuspenseFallback>
+    ),
     children: [
       {
         index: true,
@@ -139,11 +141,11 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: (
-          <ProtectedRoute>
-            <PageSuspenseFallback>
-              <ProfileLayout />
-            </PageSuspenseFallback>
-          </ProtectedRoute>
+          // <ProtectedRoute>
+          <PageSuspenseFallback>
+            <Profile />
+          </PageSuspenseFallback>
+          // </ProtectedRoute>
         ),
         children: [
           {
