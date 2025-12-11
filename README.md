@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# eCommerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a modern, fully responsive E-Commerce web application built with a focus on  scalability, and clean architecture.
+It provides a seamless shopping experience where users can browse products, manage their carts, add items to their wishlist, and complete purchases through an intuitive and visually clean UI.
 
-## React Compiler
+The application implements efficient state management, form handling, SEO enhancements, and routing best practices. It is designed to be production-ready, easy to maintain, and optimized for both desktop and mobile users
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+### Key Features:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Product details pages
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Cart & wishlist system
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- User forms (login, register, checkout) with validation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Smooth navigation with client-side routing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Responsive UI with clean design patterns
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tech Stack
+
+### Frontend
+
+  - React 19 – UI library for building components
+  
+  - TypeScript – Type-safe and scalable code
+  
+  - React Router DOM 7 – Client-side routing
+  
+  - React Hook Form + Yup – Form handling & schema validation
+  
+  - Redux Toolkit + React Redux – State management
+  
+  - Ant Design (Antd) – UI components
+  
+  - React Helmet – SEO & metadata management
+
+### Styling
+
+  - TailwindCSS 4 – Utility-first styling
+  
+  - SCSS – Additional custom styling layers
+
+### Build & Tooling
+
+  - Vite 7 – Blazing fast bundling & dev server
+  
+  - ESLint + TypeScript ESLint – Code linting and consistency
+  
+  - PostCSS + Autoprefixer – CSS processing
+  
+  - SASS / sass-embedded – Preprocessor support
+  
+  - vite-imagetools – Image optimization
+
+
+
+##  Running the Project Locally
+
+Follow the steps below to set up the project on your machine.
+
+---
+
+###  **Clone the repository**
+```bash
+git clone https://github.com/ahmedalbaz3/e-commerce
+
+cd ecommerce
+
+
+npm install
+
+
+npm run dev
