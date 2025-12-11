@@ -1,11 +1,4 @@
 import "./footer.scss";
-import arrow from "@assets/submit-email.svg";
-import facebook from "@assets/facebook.svg";
-import twitter from "@assets/twitter.svg";
-import instagram from "@assets/instagram.svg";
-import linkedIn from "@assets/in.svg";
-import googleplay from "@assets/googleplay.png";
-import appstore from "@assets/appstore.png";
 
 const Footer = () => {
   const date = new Date();
@@ -29,7 +22,7 @@ const Footer = () => {
               <input type="email" placeholder="Enter your email" />
               <img
                 className="footer-submit"
-                src={arrow}
+                src="/images/submit-email.svg"
                 alt="submit"
                 width="24"
                 height="24"
@@ -92,27 +85,55 @@ const Footer = () => {
             </li>
             <li>
               <a href="#">
-                <img src={googleplay} alt="google play icon" width={105} />
+                <img
+                  src="/images/googleplay.png"
+                  alt="google play icon"
+                  width={105}
+                />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src={appstore} alt="app store icon" width={105} />
+                <img
+                  src="/images/appstore.png"
+                  alt="app store icon"
+                  width={105}
+                />
               </a>
             </li>
 
             <li className="socials ">
               <a href="#">
-                <img src={facebook} alt="facebook" width={24} />
+                <img
+                  src="/images/facebook.svg"
+                  alt="facebook"
+                  width={24}
+                  height={24}
+                />
               </a>
               <a href="#">
-                <img src={twitter} alt="twitter" width={24} />
+                <img
+                  src="/images/twitter.svg"
+                  alt="twitter"
+                  width={24}
+                  height={24}
+                />
               </a>
               <a href="#">
-                <img src={instagram} alt="instagram" width={24} />
+                <img
+                  src="/images/instagram.svg"
+                  alt="instagram"
+                  width={24}
+                  height={24}
+                />
               </a>
               <a href="#">
-                <img src={linkedIn} alt="linkedIn" width={24} />
+                <img
+                  src="/images/in.svg"
+                  alt="linkedIn"
+                  width={24}
+                  height={24}
+                />
               </a>
             </li>
           </ul>

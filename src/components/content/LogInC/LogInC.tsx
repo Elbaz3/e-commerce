@@ -1,4 +1,3 @@
-import cover from "@assets/cover.png?w=900&format=webp&quality=90";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "../SignUp/SignUp.scss";
@@ -22,7 +21,7 @@ const LogInC = () => {
       <div className="container sign-up__container">
         <div className="sign-up__image">
           <img
-            src={cover}
+            src="/images/cover.png"
             alt="mobile and shopping basket"
             width={900}
             height={780}

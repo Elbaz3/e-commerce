@@ -1,11 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { lazy } from "react";
-
-// layouts
-const MainLayout = lazy(() => import("@layouts/MainLayout/MainLayout"));
+import { lazy, Suspense } from "react";
 
 // pages
-const Home = lazy(() => import("@pages/Home"));
 const Products = lazy(() => import("@pages/Products"));
 const Product = lazy(() => import("@pages/Product"));
 const AboutUs = lazy(() => import("@pages/AboutUs"));
@@ -21,46 +17,27 @@ const Contact = lazy(() => import("@pages/Contact"));
 const Profile = lazy(() => import("@pages/Profile"));
 
 import Error from "@pages/Error";
-import PageSuspenseFallback from "@components/feedback/PageSuspenseFallback/PageSuspenseFallback";
 import ProtectedRoute from "@components/Auth/ProtectedRoutes";
+import MainLayout from "@layouts/MainLayout/MainLayout";
+import Home from "@pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <PageSuspenseFallback>
-        <MainLayout />
-      </PageSuspenseFallback>
-    ),
-    errorElement: (
-      <PageSuspenseFallback>
-        <Error />
-      </PageSuspenseFallback>
-    ),
+    element: <MainLayout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
-        element: (
-          <PageSuspenseFallback>
-            <Home />
-          </PageSuspenseFallback>
-        ),
+        element: <Home />,
       },
       {
         path: "product",
-        element: (
-          <PageSuspenseFallback>
-            <Product />
-          </PageSuspenseFallback>
-        ),
+        element: <Product />,
       },
       {
         path: "categories/products/:prefix",
-        element: (
-          <PageSuspenseFallback>
-            <Products />
-          </PageSuspenseFallback>
-        ),
+        element: <Products />,
         loader: ({ params }) => {
           if (
             typeof params.prefix !== "string" ||
@@ -76,93 +53,52 @@ const router = createBrowserRouter([
       },
       {
         path: "cart",
-        element: (
-          <PageSuspenseFallback>
-            <Cart />
-          </PageSuspenseFallback>
-        ),
+        element: <Cart />,
       },
       {
         path: "wishlist",
-        element: (
-          <PageSuspenseFallback>
-            <WishList />
-          </PageSuspenseFallback>
-        ),
+        element: <WishList />,
       },
       {
         path: "about-us",
-        element: (
-          <PageSuspenseFallback>
-            <AboutUs />
-          </PageSuspenseFallback>
-        ),
+        element: <AboutUs />,
       },
       {
         path: "contact",
-        element: (
-          <PageSuspenseFallback>
-            <Contact />
-          </PageSuspenseFallback>
-        ),
+        element: <Contact />,
       },
       {
         path: "login",
-        element: (
-          <PageSuspenseFallback>
-            <Login />
-          </PageSuspenseFallback>
-        ),
+        element: <Login />,
       },
       {
         path: "signup",
-        element: (
-          <PageSuspenseFallback>
-            <SignUp />
-          </PageSuspenseFallback>
-        ),
+        element: <SignUp />,
       },
       {
         path: "payment",
-        element: (
-          <PageSuspenseFallback>
-            <Payment />
-          </PageSuspenseFallback>
-        ),
+        element: <Payment />,
       },
       {
         path: "checkout",
-        element: (
-          <PageSuspenseFallback>
-            <Checkout />
-          </PageSuspenseFallback>
-        ),
+        element: <Checkout />,
       },
       {
         path: "profile",
         element: (
           // <ProtectedRoute>
-          <PageSuspenseFallback>
-            <Profile />
-          </PageSuspenseFallback>
+
+          <Profile />
           // </ProtectedRoute>
         ),
         children: [
           {
             index: true,
-            element: (
-              <PageSuspenseFallback>
-                <Account />
-              </PageSuspenseFallback>
-            ),
+            element: <Account />,
           },
           {
             path: "orders",
-            element: (
-              <PageSuspenseFallback>
-                <Orders />
-              </PageSuspenseFallback>
-            ),
+            element: <Orders />,
           },
         ],
       },
@@ -170,7 +106,11 @@ const router = createBrowserRouter([
   },
 ]);
 const AppRouter = () => {
-  return <RouterProvider router={router} />;
+  return (
+    // <Suspense fallback={<PageSuspenseFallback />}>
+    <RouterProvider router={router} />
+    // </Suspense>
+  );
 };
 
 export default AppRouter;

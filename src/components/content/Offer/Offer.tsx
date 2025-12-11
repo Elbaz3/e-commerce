@@ -1,7 +1,6 @@
 import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
 import CountDown from "@components/common/CountDown/CountDown";
 import "./Offer.scss";
-import offer1 from "@assets/offer-1.png?w=800&format=webp&quality=80";
 
 const Offer = () => {
   return (
@@ -15,7 +14,11 @@ const Offer = () => {
             <ButtonPrim to="/" value="Buy Now!" />
           </div>
 
-          <img className="product-image" src={offer1} alt="product" />
+          <img
+            className="product-image"
+            src="/images/offer-1.png"
+            alt="product"
+          />
         </div>
       </div>
     </div>

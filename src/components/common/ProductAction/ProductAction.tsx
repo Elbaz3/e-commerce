@@ -1,8 +1,5 @@
 import { useState } from "react";
-import delivery from "@assets/delivery.svg";
-import returnI from "@assets/return.svg";
-import wish from "@assets/Wishlist.svg";
-import star from "@assets/full-start.svg";
+
 import "./ProductAction.scss";
 
 const ProductAction = () => {
@@ -24,11 +21,11 @@ const ProductAction = () => {
       {/* Rating */}
       <div className="product-state">
         <div className="stars">
-          <img src={star} />
-          <img src={star} />
-          <img src={star} />
-          <img src={star} />
-          <img src={star} />
+          <img src="/images/full-start.svg" />
+          <img src="/images/full-start.svg" />
+          <img src="/images/full-start.svg" />
+          <img src="/images/full-start.svg" />
+          <img src="/images/full-start.svg" />
         </div>
         <span>(150 Reviews)</span>
         <span>|</span>
@@ -97,14 +94,14 @@ const ProductAction = () => {
         <button className="button-primary ">Buy Now</button>
 
         <div className="add-wish">
-          <img src={wish} alt="heart" width={25} height={25} />
+          <img src="/images/Wishlist.svg" alt="heart" width={25} height={25} />
         </div>
       </div>
 
       {/* Delivery Info */}
       <div className="delivery">
         <div className="return-info">
-          <img src={delivery} className="" />
+          <img src="/images/delivery.svg" className="" />
 
           <div>
             <p className="font-semibold">Free Delivery</p>
@@ -117,7 +114,7 @@ const ProductAction = () => {
         <hr />
 
         <div className="return-info">
-          <img src={returnI} className="" />
+          <img src="/images/return.svg" className="" />
           <div>
             <p className="font-semibold">Return Delivery</p>
             <p className="desc">

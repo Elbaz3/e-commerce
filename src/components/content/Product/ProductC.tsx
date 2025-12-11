@@ -2,18 +2,6 @@ import ProductActBtn from "@components/common/ProductActBtn/ProductActBtn";
 import ProductCard from "@components/common/ProductCard/ProductCard";
 import SectionHeader from "@components/common/SectionHeader/SectionHeader";
 import useVisitProduct from "@hooks/useVisitProduct";
-import img1 from "@assets/p-1.png?w=800&format=webp&quality=80";
-import img2 from "@assets/p-2.png?w=800&format=webp&quality=80";
-import img3 from "@assets/p-3.png?w=800&format=webp&quality=80";
-import img4 from "@assets/p-4.png?w=800&format=webp&quality=80";
-import wish from "@assets/heart.svg?w=64&format=webp&quality=90";
-import show from "@assets/show.svg?w=64&format=webp&quality=90";
-
-import imgP1 from "@assets/product-img-1.png?w=80&format=webp&quality=100";
-import imgP2 from "@assets/product-img-2.png?w=80&format=webp&quality=100";
-import imgP3 from "@assets/product-img-3.png?w=80&format=webp&quality=100";
-import imgP4 from "@assets/product-img-4.png?w=80&format=webp&quality=100";
-import pImg from "@assets/product.png?w=500&format=webp&quality=80";
 
 import ProductAction from "@components/common/ProductAction/ProductAction";
 import "./Product.scss";
@@ -21,8 +9,13 @@ import SmallNav from "@components/common/SmallNav/SmallNav";
 
 const product = {
   title: "",
-  image: pImg,
-  smallImg: [imgP1, imgP2, imgP3, imgP4],
+  image: "/images/product.png",
+  smallImg: [
+    "/images/product-img-1.png",
+    "/images/product-img-2.png",
+    "/images/product-img-3.png",
+    "/images/product-img-4.png",
+  ],
 };
 
 const products = [
@@ -34,7 +27,7 @@ const products = [
     discount: -40,
     reviews: 88,
     stars: 5,
-    image: img1,
+    image: "/images/p-1.png",
   },
   {
     id: 2,
@@ -44,7 +37,7 @@ const products = [
     discount: -25,
     reviews: 134,
     stars: 4,
-    image: img2,
+    image: "/images/p-2.png",
   },
   {
     id: 3,
@@ -54,7 +47,7 @@ const products = [
     discount: -35,
     reviews: 212,
     stars: 5,
-    image: img3,
+    image: "/images/p-3.png",
   },
   {
     id: 4,
@@ -64,7 +57,7 @@ const products = [
     discount: -23,
     reviews: 76,
     stars: 4,
-    image: img4,
+    image: "/images/p-4.png",
   },
 ];
 
@@ -132,13 +125,13 @@ const ProductC = () => {
                 actElement={
                   <>
                     <ProductActBtn
-                      image={wish}
+                      image="/images/heart.svg"
                       alter="heart"
                       id={product.id}
                       action={visit}
                     />
                     <ProductActBtn
-                      image={show}
+                      image="/images/show.svg"
                       alter="eye"
                       id={product.id}
                       action={visit}

@@ -1,10 +1,5 @@
 import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
-import img1 from "@assets/p-1.png?w=800&format=webp&quality=80";
-import img2 from "@assets/p-2.png?w=800&format=webp&quality=80";
-import img3 from "@assets/p-3.png?w=800&format=webp&quality=80";
-import img4 from "@assets/p-4.png?w=800&format=webp&quality=80";
-import show from "@assets/show.svg?w=64&format=webp&quality=90";
-import deleteP from "@assets/delete.svg?w=64&format=webp&quality=90";
+
 import ProductCard from "@components/common/ProductCard/ProductCard";
 import SectionHeader from "@components/common/SectionHeader/SectionHeader";
 import ProductActBtn from "@components/common/ProductActBtn/ProductActBtn";
@@ -21,7 +16,7 @@ const productsF = [
     discount: 0,
     reviews: 88,
     stars: 5,
-    image: img1,
+    image: "/images/p-1.png",
     newP: true,
   },
   {
@@ -32,7 +27,7 @@ const productsF = [
     discount: -25,
     reviews: 134,
     stars: 4,
-    image: img2,
+    image: "/images/p-2.png",
     newP: false,
   },
   {
@@ -43,7 +38,7 @@ const productsF = [
     discount: -35,
     reviews: 212,
     stars: 5,
-    image: img3,
+    image: "/images/p-3.png",
     newP: false,
   },
   {
@@ -54,7 +49,7 @@ const productsF = [
     discount: 0,
     reviews: 76,
     stars: 4,
-    image: img4,
+    image: "/images/p-4.png",
     newP: true,
   },
 ];
@@ -83,12 +78,12 @@ const WishListC = () => {
                 key={product.id}
                 id={product.id}
                 title={product.title}
-                price={product.newPrice}
+                price={product.newPrice ? product.newPrice : 0}
                 discount={product.discount}
                 image={product.image}
                 actElement={
                   <ProductActBtn
-                    image={deleteP}
+                    image="/images/delete.svg"
                     alter="like"
                     id={product.id}
                     action={visit}
@@ -116,7 +111,7 @@ const WishListC = () => {
                 image={product.image}
                 actElement={
                   <ProductActBtn
-                    image={show}
+                    image="/images/show.svg"
                     id={product.id}
                     action={visit}
                     alter="show"

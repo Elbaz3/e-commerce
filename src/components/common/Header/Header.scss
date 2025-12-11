@@ -68,7 +68,7 @@
 
     &__nav {
       ul {
-        @apply flex gap-12;
+        @apply flex gap-8;
 
         a {
           @apply duration-200 border-b border-b-transparent py-[7px];

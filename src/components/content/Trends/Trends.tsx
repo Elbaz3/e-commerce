@@ -2,8 +2,6 @@ import SectionHeader from "@components/common/SectionHeader/SectionHeader";
 import "./Trends.scss";
 import CountDown from "@components/common/CountDown/CountDown";
 import ProductCard from "@components/common/ProductCard/ProductCard";
-import wish from "@assets/heart.svg?w=64&format=webp&quality=90";
-import show from "@assets/show.svg?w=64&format=webp&quality=90";
 
 import { useRef } from "react";
 import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
@@ -54,7 +52,7 @@ const Trends = () => {
                 actElement={
                   <>
                     <ProductActBtn
-                      image={wish}
+                      image="/images/heart.svg"
                       alter="heart"
                       id={product.id}
                       action={visit}
@@ -62,7 +60,7 @@ const Trends = () => {
                       type="like"
                     />
                     <ProductActBtn
-                      image={show}
+                      image="/images/show.svg"
                       alter="show"
                       id={product.id}
                       action={visit}

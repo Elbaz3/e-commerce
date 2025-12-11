@@ -11,6 +11,7 @@
   .trends__products {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 
     @media (min-width: $md) and (max-width: $xl) {
       grid-template-columns: repeat(2, 1fr);

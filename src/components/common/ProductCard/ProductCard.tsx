@@ -1,9 +1,9 @@
 import "./ProductCard.scss";
 
-import star from "@assets/full-start.svg?w=64&format=webp&quality=90";
 import { addToCart } from "@store/cart/cartSlice";
 import { useAppDispatch } from "@store/hook";
 import type { ReactNode } from "react";
+import React from "react";
 
 interface productCardProps {
   id: number;
@@ -40,7 +40,14 @@ const ProductCard = ({
   return (
     <div className="product-card">
       <div className={`product-card__top `}>
-        <img className="product-image" src={image} alt="product" />
+        <img
+          className="product-image"
+          src={image}
+          alt="product"
+          width={300}
+          height={300}
+          loading="lazy"
+        />
         <div className="icon-wrapper">
           {(discount || newP) && (
             <div className={`product-card__discount ${newP ? "new-bg" : ""}`}>
@@ -65,11 +72,36 @@ const ProductCard = ({
           <div className="stars-rate ">
             {stars && (
               <>
-                <img src={star} alt="" width={20} loading="lazy" />
-                <img src={star} alt="" width={20} loading="lazy" />
-                <img src={star} alt="" width={20} loading="lazy" />
-                <img src={star} alt="" width={20} loading="lazy" />
-                <img src={star} alt="" width={20} loading="lazy" />
+                <img
+                  src="images/full-start.svg"
+                  alt=""
+                  width={20}
+                  loading="lazy"
+                />
+                <img
+                  src="images/full-start.svg"
+                  alt=""
+                  width={20}
+                  loading="lazy"
+                />
+                <img
+                  src="images/full-start.svg"
+                  alt=""
+                  width={20}
+                  loading="lazy"
+                />
+                <img
+                  src="images/full-start.svg"
+                  alt=""
+                  width={20}
+                  loading="lazy"
+                />
+                <img
+                  src="images/full-start.svg"
+                  alt=""
+                  width={20}
+                  loading="lazy"
+                />
               </>
             )}
           </div>
@@ -81,4 +113,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default React.memo(ProductCard);

@@ -1,4 +1,3 @@
-import arrow from "@assets/arrow-trend.svg";
 import "./SlideButtons.scss";
 interface SlideButtonsProps {
   sliderRef: React.RefObject<HTMLDivElement | null>;
@@ -18,10 +17,10 @@ const SlideButtons = ({ sliderRef }: SlideButtonsProps) => {
   return (
     <div className="slide-buttons">
       <div className="arrow arrow-l" onClick={() => scroll("left")}>
-        <img src={arrow} alt="arrow" loading="lazy" />
+        <img src="/images/arrow-trend.svg" alt="arrow" loading="lazy" />
       </div>
       <div className="arrow arrow-r" onClick={() => scroll("right")}>
-        <img src={arrow} alt="arrow" loading="lazy" />
+        <img src="/images/arrow-trend.svg" alt="arrow" loading="lazy" />
       </div>
     </div>
   );

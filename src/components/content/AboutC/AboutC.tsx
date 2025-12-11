@@ -1,16 +1,6 @@
-import heroImage from "@assets/about-hero.png?w=800&format=webp&quality=80";
 import "./AboutC.scss";
 import StatsBox from "@components/common/StatsBox/StatsBox";
-import icon1 from "@assets/stat-1svg.svg?w=800&format=webp&quality=80";
-import icon2 from "@assets/stat-2.svg?w=800&format=webp&quality=80";
-import icon3 from "@assets/stat-3.svg?w=800&format=webp&quality=80";
-import icon4 from "@assets/stat-4.svg?w=800&format=webp&quality=80";
-import stuff1 from "@assets/stuff-1.png?w=800&format=webp&quality=80";
-import stuff2 from "@assets/stuff-2.png?w=800&format=webp&quality=80";
-import stuff3 from "@assets/stuff-3.png?w=800&format=webp&quality=80";
-import service1 from "@assets/Services.png?w=800&format=webp&quality=80&url";
-import service2 from "@assets/Services-2.png?w=800&format=webp&quality=80&url";
-import service3 from "@assets/Services-3.png?w=800&format=webp&quality=80&url";
+
 import StuffCard from "@components/common/StuffCard/StuffCard";
 import SmallNav from "@components/common/SmallNav/SmallNav";
 
@@ -18,22 +8,22 @@ const stats = [
   {
     title: "10.5k",
     desc: "Sallers active our site",
-    image: icon1,
+    image: "/images/stat-1svg.svg",
   },
   {
     title: "33k",
     desc: "Mopnthly Produduct Sale",
-    image: icon2,
+    image: "/images/stat-2.svg",
   },
   {
     title: "45.5k",
     desc: "Customer active in our site",
-    image: icon3,
+    image: "/images/stat-3.svg",
   },
   {
     title: "25k",
     desc: "Anual gross sale in our site",
-    image: icon4,
+    image: "/images/stat-4.svg",
   },
 ];
 
@@ -41,17 +31,17 @@ const stuff = [
   {
     name: "Tom Cruise",
     title: "Founder & Chairman",
-    image: stuff1,
+    image: "/images/stuff-1.png",
   },
   {
     name: "Emma Watson",
     title: "Managing Director",
-    image: stuff2,
+    image: "/images/stuff-2.png",
   },
   {
     name: "Will Smith",
     title: "Product Designer",
-    image: stuff3,
+    image: "/images/stuff-3.png",
   },
 ];
 
@@ -79,7 +69,7 @@ const AboutC = () => {
             </p>
           </div>
           <div className="about__hero__image">
-            <img src={heroImage} alt="" />
+            <img src="/images/about-hero.png" alt="" />
           </div>
         </div>
 
@@ -107,21 +97,36 @@ const AboutC = () => {
 
         <div className="feature__content__bottom">
           <div className="bottom-item">
-            <img src={service1} alt="" />
+            <img
+              src="/images/Services.png"
+              alt="service"
+              width={80}
+              height={80}
+            />
             <div className="text">
               <h3>FREE AND FAST DELIVERY</h3>
               <p>Free delivery for all orders over $140</p>
             </div>
           </div>
           <div className="bottom-item">
-            <img src={service2} alt="" />
+            <img
+              src="/images/Services-2.png"
+              alt="service"
+              width={80}
+              height={80}
+            />
             <div className="text">
               <h3>FREE AND FAST DELIVERY</h3>
               <p>Free delivery for all orders over $140</p>
             </div>
           </div>
           <div className="bottom-item">
-            <img src={service3} alt="" />
+            <img
+              src="/images/Services-3.png"
+              alt="service"
+              width={80}
+              height={80}
+            />
             <div className="text">
               <h3>FREE AND FAST DELIVERY</h3>
               <p>Free delivery for all orders over $140</p>

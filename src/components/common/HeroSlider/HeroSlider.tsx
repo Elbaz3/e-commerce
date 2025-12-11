@@ -1,6 +1,3 @@
-import iphone from "@assets/iphone.png";
-import apple from "@assets/apple.png";
-import arrow from "@assets/slider-icon.svg";
 import "./HeroSlider.scss";
 import { lazy, Suspense } from "react";
 
@@ -14,21 +11,21 @@ const heroSlides = [
     brand: "Apple",
     subtitle: "iPhone 14 Series",
     title: "Up to 10% off Voucher",
-    image: iphone,
+    image: "/images/iphone.png",
   },
   {
     id: 2,
     brand: "Samsung",
     subtitle: "Galaxy S23",
     title: "Up to 15% off Voucher",
-    image: iphone,
+    image: "/images/iphone.png",
   },
   {
     id: 3,
     brand: "Sony",
     subtitle: "PlayStation 5",
     title: "Limited Offer",
-    image: iphone,
+    image: "/images/iphone.png",
   },
 ];
 
@@ -42,7 +39,7 @@ const HeroSlider = () => {
               {/* LEFT CONTENT */}
               <div className="slider__text">
                 <div className="slider__text__brand">
-                  <img src={apple} width={40} alt={slide.brand} />
+                  <img src="/images/apple.png" width={40} alt={slide.brand} />
                   <span className="brand-names">{slide.subtitle}</span>
                 </div>
 
@@ -50,7 +47,7 @@ const HeroSlider = () => {
 
                 <button className="slider__text__btn">
                   <span>Shop Now</span>
-                  <img src={arrow} alt="arrow" />
+                  <img src="/images/slider-icon.svg" alt="arrow" />
                 </button>
               </div>
 

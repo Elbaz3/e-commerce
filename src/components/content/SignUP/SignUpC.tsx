@@ -1,5 +1,3 @@
-import cover from "@assets/cover.png?w=900&format=webp&quality=90";
-import google from "@assets/google.svg?w=900&format=webp&quality=90";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./SignUp.scss";
@@ -22,7 +20,7 @@ const SignUpC = () => {
       <div className="container sign-up__container">
         <div className="sign-up__image">
           <img
-            src={cover}
+            src="/images/cover.png"
             alt="mobile and shopping basket"
             width={900}
             height={780}
@@ -66,7 +64,7 @@ const SignUpC = () => {
               to="/"
               value="Sign up with Google"
               style="form-btn"
-              logo={<img src={google} width={24} height={24} />}
+              logo={<img src="/images/google.svg" width={24} height={24} />}
             />
             <div className="footer-text">
               <p>Already have account?</p>

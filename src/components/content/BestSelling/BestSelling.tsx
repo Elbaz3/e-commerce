@@ -1,8 +1,7 @@
 import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
 import ProductCard from "@components/common/ProductCard/ProductCard";
 import SectionHeader from "@components/common/SectionHeader/SectionHeader";
-import wish from "@assets/heart.svg?w=64&format=webp&quality=90";
-import show from "@assets/show.svg?w=64&format=webp&quality=90";
+
 import ProductActBtn from "@components/common/ProductActBtn/ProductActBtn";
 import useVisitProduct from "@hooks/useVisitProduct";
 import { useAppSelector } from "@store/hook";
@@ -47,14 +46,14 @@ const BestSelling = () => {
                 actElement={
                   <>
                     <ProductActBtn
-                      image={wish}
+                      image="/images/heart.svg"
                       alter="heart"
                       id={product.id}
                       liked={itemsId.includes(product.id) ? true : false}
                       type="like"
                     />
                     <ProductActBtn
-                      image={show}
+                      image="/images/show.svg"
                       alter="eye"
                       id={product.id}
                       action={visit}

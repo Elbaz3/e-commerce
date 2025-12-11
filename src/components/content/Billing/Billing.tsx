@@ -1,9 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import logo1 from "@assets/logo-b-1.svg?w=800&format=webp&quality=80";
-import logo2 from "@assets/logo-b-2.svg?w=800&format=webp&quality=80";
-import logo3 from "@assets/logo-b-3.svg?w=800&format=webp&quality=80";
-import logo4 from "@assets/logo-b-4.svg?w=800&format=webp&quality=80";
+
 import "./Billing.scss";
 import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
 import SmallNav from "@components/common/SmallNav/SmallNav";
@@ -158,25 +155,25 @@ const Billing = () => {
                   </div>
                   <span className="logos">
                     <img
-                      src={logo1}
+                      src="/images/logo-b-1.svg"
                       alt="logo for bank company"
                       width={42}
                       height={28}
                     />
                     <img
-                      src={logo2}
+                      src="/images/logo-b-2.svg"
                       alt="logo for bank company"
                       width={42}
                       height={28}
                     />
                     <img
-                      src={logo3}
+                      src="/images/logo-b-3.svg"
                       alt="logo for bank company"
                       width={42}
                       height={28}
                     />
                     <img
-                      src={logo4}
+                      src="/images/logo-b-4.svg"
                       alt="logo for bank company"
                       width={42}
                       height={28}

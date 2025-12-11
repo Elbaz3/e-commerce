@@ -107,7 +107,7 @@ const CartC = () => {
             <div className="cart-details-wrapper">
               <div className="detail">
                 <span className="key">Subtotal:</span>
-                <span className="value">{totalPrice}</span>
+                <span className="value">${totalPrice}</span>
               </div>
               <div className="detail">
                 <span className="key">Shipping:</span>
@@ -115,7 +115,7 @@ const CartC = () => {
               </div>
               <div className="detail">
                 <span className="key">Total:</span>
-                <span className="value">{totalPrice}</span>
+                <span className="value">${totalPrice}</span>
               </div>
             </div>
             <ButtonPrim value="Procees to checkout" to="/checkout" />

@@ -1,15 +1,6 @@
-import { lazy, Suspense, useEffect, useRef } from "react";
+import React, { lazy, Suspense, useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
-import wishlist from "../../../assets/Wishlist.svg";
-import cart from "../../../assets/Cart.svg";
-import userI from "../../../assets/user.svg";
-import userAcc from "../../../assets/userAcc.svg";
-import search from "../../../assets/search.svg";
-import burger from "../../../assets/collaps-icon.svg";
-import cancelations from "../../../assets/cancelations.svg";
-import profileRevies from "../../../assets/profile-reviews.svg";
-import profileOrder from "../../../assets/profile-order.svg";
-import profileLogout from "../../../assets/profile-logout.svg";
+
 import "./Header.scss";
 import { useAppSelector } from "@store/hook";
 
@@ -41,8 +32,10 @@ const Header = () => {
     console.log("Selected language:", lang);
   };
 
-  const liked = useAppSelector((state) => state.wishSlice.itemsId);
-  const cartQ = useAppSelector((state) => state.cartReducer.items);
+  const likedCount = useAppSelector((state) => state.wishSlice.itemsId.length);
+  const cartCount = useAppSelector(
+    (state) => Object.keys(state.cartReducer.items).length
+  );
 
   return (
     <div className="header">
@@ -79,7 +72,7 @@ const Header = () => {
           </Link>
 
           <div className="collaps-icon" onClick={handleShowIcon}>
-            <img src={burger} alt="burger icon" width={40} />
+            <img src="/images/collaps-icon.svg" alt="burger icon" width={40} />
           </div>
 
           <div ref={menu} className="header__collaps">
@@ -129,7 +122,7 @@ const Header = () => {
                 />
 
                 <button className="search-icon" type="submit">
-                  <img src={search} alt="search icon" />
+                  <img src="/images/search.svg" alt="search icon" />
                 </button>
               </form>
 
@@ -137,9 +130,9 @@ const Header = () => {
                 to="/wishlist"
                 className={`wish ${currentPage === "wishlist" ? "active" : ""}`}
               >
-                <img src={wishlist} alt="heart" width={24} />
-                {liked.length > 0 && (
-                  <div className="productQuantity">{liked.length}</div>
+                <img src="/images/Wishlist.svg" alt="heart" width={24} />
+                {likedCount > 0 && (
+                  <div className="productQuantity">{likedCount}</div>
                 )}
               </Link>
 
@@ -147,11 +140,9 @@ const Header = () => {
                 to="/cart"
                 className={`cart ${currentPage === "cart" ? "active" : ""}`}
               >
-                <img src={cart} alt="cart" width={24} />
-                {Object.keys(cartQ).length > 0 && (
-                  <div className="productQuantity">
-                    {Object.keys(cartQ).length}
-                  </div>
+                <img src="/images/Cart.svg" alt="cart" width={24} />
+                {cartCount > 0 && (
+                  <div className="productQuantity">{cartCount}</div>
                 )}
               </Link>
               <div
@@ -159,26 +150,27 @@ const Header = () => {
                   currentPage === "profile" ? "active" : ""
                 }`}
               >
-                <img src={userI} alt="cart" width={24} />
+                <img src="/images/user.svg" alt="cart" width={24} />
                 <ul className="menu-profile">
                   <li>
-                    <img src={userAcc} alt="icon" />{" "}
+                    <img src="/images/userAcc.svg" alt="icon" />{" "}
                     <a href="/profile">Manage My Account</a>
                   </li>
                   <li>
-                    <img src={profileOrder} alt="icon" />{" "}
+                    <img src="/images/profile-order.svg" alt="icon" />{" "}
                     <a href="">My Order</a>
                   </li>
                   <li>
-                    <img src={cancelations} alt="icon" />{" "}
+                    <img src="/images/cancelations.svg" alt="icon" />{" "}
                     <a href="">My Cancellations</a>
                   </li>
                   <li>
-                    <img src={profileRevies} alt="icon" />{" "}
+                    <img src="/images/profile-reviews.svg" alt="icon" />{" "}
                     <a href="">My Reviews</a>
                   </li>
                   <li>
-                    <img src={profileLogout} alt="icon" /> <a href="">Logout</a>
+                    <img src="/images/profile-logout.svg" alt="icon" />{" "}
+                    <a href="">Logout</a>
                   </li>
                 </ul>
               </div>
@@ -190,4 +182,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
