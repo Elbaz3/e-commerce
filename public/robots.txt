@@ -1,0 +1,34 @@
+# ===============================
+#  ALLOW PUBLIC PAGES (GOOD SEO)
+# ===============================
+User-agent: *
+Allow: /
+
+# Public pages:
+Allow: /home
+Allow: /aboutus
+Allow: /contact
+Allow: /products
+Allow: /product
+Allow: /wishlist
+
+# ===============================
+#  BLOCK SENSITIVE / PRIVATE
+# ===============================
+Disallow: /login
+Disallow: /signup
+Disallow: /account
+Disallow: /profile
+Disallow: /cart
+Disallow: /orders
+Disallow: /payment
+Disallow: /checkout
+
+# ===============================
+#  OPTIONAL
+# ===============================
+# Prevent crawling build/static files
+Disallow: /assets/
+
+# Your sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
