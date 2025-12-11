@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 
 // pages
 const Products = lazy(() => import("@pages/Products"));
@@ -17,7 +17,6 @@ const Contact = lazy(() => import("@pages/Contact"));
 const Profile = lazy(() => import("@pages/Profile"));
 
 import Error from "@pages/Error";
-import ProtectedRoute from "@components/Auth/ProtectedRoutes";
 import MainLayout from "@layouts/MainLayout/MainLayout";
 import Home from "@pages/Home";
 
@@ -85,12 +84,7 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: (
-          // <ProtectedRoute>
-
-          <Profile />
-          // </ProtectedRoute>
-        ),
+        element: <Profile />,
         children: [
           {
             index: true,

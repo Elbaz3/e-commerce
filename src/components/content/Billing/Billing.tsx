@@ -114,7 +114,7 @@ const Billing = () => {
                           : product.title}
                       </span>
                     </div>
-                    <div className="price">${product.price}</div>
+                    <div className="price">${product.newPrice}</div>
                   </div>
                 ))}
               </div>
@@ -123,13 +123,7 @@ const Billing = () => {
                 <div className="cart-details-wrapper">
                   <div className="detail">
                     <span className="key">Subtotal:</span>
-                    <span className="value">
-                      $
-                      {products.reduce(
-                        (total, item) => total + item.price * item.quantity,
-                        0
-                      )}
-                    </span>
+                    <span className="value">${totalPrice}</span>
                   </div>
                   <div className="detail">
                     <span className="key">Shipping:</span>
@@ -137,13 +131,7 @@ const Billing = () => {
                   </div>
                   <div className="detail">
                     <span className="key">Total:</span>
-                    <span className="value">
-                      $
-                      {products.reduce(
-                        (total, item) => total + item.price * item.quantity,
-                        0
-                      )}
-                    </span>
+                    <span className="value">${totalPrice}</span>
                   </div>
                 </div>
               </div>

@@ -56,6 +56,7 @@ const cartSlice = createSlice({
     changeQuantity: (state, action) => {
       const { id, price, type } = action.payload;
       const oldQuantity = state.items[id] || 0;
+
       if (type === "inc") {
         const newQuantity = oldQuantity + 1;
 
@@ -65,6 +66,9 @@ const cartSlice = createSlice({
         const newQuantity = oldQuantity - 1;
 
         state.items[id] = newQuantity;
+        state.totalPrice -= price;
+      } else if (type === "dec" && oldQuantity === 1) {
+        delete state.items[id];
         state.totalPrice -= price;
       }
 

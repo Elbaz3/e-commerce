@@ -1,29 +1,24 @@
 import SectionHeader from "@components/common/SectionHeader/SectionHeader";
 import SlideButtons from "@components/common/SlideButtons/SlideButtons";
 import CategoryCard from "@components/common/CategoryCard/CategoryCard";
-import phones from "@assets/phones.svg";
-import computers from "@assets/computers.svg";
-import smartWatch from "@assets/smart-watch.svg";
-import camera from "@assets/camera.svg";
-import headPhone from "@assets/headphone.svg";
-import gaming from "@assets/gaming.svg";
+
 import { useRef } from "react";
 import "./CategoriesList.scss";
 
 const categories = [
-  { image: phones, name: "Phones" },
-  { image: computers, name: "Computers" },
-  { image: smartWatch, name: "Smart Watch" },
-  { image: camera, name: "Camera" },
-  { image: headPhone, name: "Headphones" },
-  { image: gaming, name: "Gaming" },
+  { image: "/images/phones.svg", name: "Phones" },
+  { image: "/images/computers.svg", name: "Computers" },
+  { image: "/images/smart-watch.svg", name: "Smart Watch" },
+  { image: "/images/camera.svg", name: "Camera" },
+  { image: "/images/headphone.svg", name: "Headphones" },
+  { image: "/images/assets/gaming.svg", name: "Gaming" },
 
-  { image: phones, name: "Phones" },
-  { image: computers, name: "Computers" },
-  { image: smartWatch, name: "Smart Watch" },
-  { image: camera, name: "Camera" },
-  { image: headPhone, name: "Headphones" },
-  { image: gaming, name: "Gaming" },
+  { image: "/images/phones.svg", name: "Phones" },
+  { image: "/images/computers.svg", name: "Computers" },
+  { image: "/images/smart-watch.svg", name: "Smart Watch" },
+  { image: "/images/camera.svg", name: "Camera" },
+  { image: "/images/headphone.svg", name: "Headphones" },
+  { image: "/images/assets/gaming.svg", name: "Gaming" },
 ];
 
 const CategoriesList = () => {

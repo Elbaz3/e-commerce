@@ -4,7 +4,7 @@ import "./Hero.scss";
 
 const Hero = () => {
   return (
-    <div className="hero">
+    <section className="hero">
       <div className="container hero__container">
         <div className="hero__filter">
           <CategoryFilter />
@@ -13,7 +13,7 @@ const Hero = () => {
           <HeroSlider />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
