@@ -168,10 +168,6 @@
   }
 }
 .account {
-  &:hover .menu-profile {
-    display: flex;
-  }
-
   .menu-profile {
     @apply absolute top-full right-0 flex-col gap-3 py-4 px-5 text-sm rounded-sm;
     width: 225px;
@@ -179,6 +175,10 @@
     z-index: 1000;
     background: rgba(0, 0, 0, 1);
     display: none;
+
+    &.active {
+      display: flex;
+    }
   }
 
   li {

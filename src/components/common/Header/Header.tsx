@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useRef } from "react";
+import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 import "./Header.scss";
@@ -13,6 +13,7 @@ type Language = "en" | "ar";
 const Header = () => {
   const menu = useRef<HTMLDivElement | null>(null);
   const navItems = useRef<HTMLUListElement | null>(null);
+  const [profileMenu, setProfileMenu] = useState(false);
 
   const { pathname } = useLocation();
   const currentPage = pathname.split("/").pop();
@@ -36,6 +37,10 @@ const Header = () => {
   const cartCount = useAppSelector(
     (state) => Object.keys(state.cartReducer.items).length
   );
+
+  const toggleProfileMenu = () => {
+    setProfileMenu(!profileMenu);
+  };
 
   return (
     <div className="header">
@@ -150,8 +155,13 @@ const Header = () => {
                   currentPage === "profile" ? "active" : ""
                 }`}
               >
-                <img src="/images/user.svg" alt="cart" width={24} />
-                <ul className="menu-profile">
+                <img
+                  onClick={toggleProfileMenu}
+                  src="/images/user.svg"
+                  alt="cart"
+                  width={24}
+                />
+                <ul className={`menu-profile ${profileMenu ? "active" : ""}`}>
                   <li>
                     <img src="/images/userAcc.svg" alt="icon" />{" "}
                     <a href="/profile">Manage My Account</a>
