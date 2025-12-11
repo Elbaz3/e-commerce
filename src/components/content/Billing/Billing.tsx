@@ -9,11 +9,19 @@ import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
 import SmallNav from "@components/common/SmallNav/SmallNav";
 import { billingProducts } from "@util/MocupData";
 import { paymentSchema } from "@util/schemas";
+import { useAppSelector } from "@store/hook";
 
-const products = billingProducts;
+// const products = billingProducts;
 const schema = paymentSchema;
 
 const Billing = () => {
+  const { items, fullProductInfo, totalPrice } = useAppSelector(
+    (state) => state.cartReducer
+  );
+
+  const products = fullProductInfo.filter((pr) => items[pr.id]);
+
+  console.log(products);
   const {
     register,
     handleSubmit,

@@ -100,4 +100,10 @@
       }
     }
   }
+
+  .q-wrapper {
+    button {
+      @apply cursor-pointer p-1;
+    }
+  }
 }

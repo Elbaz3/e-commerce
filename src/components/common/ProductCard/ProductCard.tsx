@@ -1,9 +1,12 @@
 import "./ProductCard.scss";
 
 import star from "@assets/full-start.svg?w=64&format=webp&quality=90";
+import { addToCart } from "@store/cart/cartSlice";
+import { useAppDispatch } from "@store/hook";
 import type { ReactNode } from "react";
 
 interface productCardProps {
+  id: number;
   title: string;
   oldPrice?: number;
   price: number;
@@ -16,6 +19,7 @@ interface productCardProps {
 }
 
 const ProductCard = ({
+  id,
   title = "proplem",
   oldPrice,
   price,
@@ -26,6 +30,13 @@ const ProductCard = ({
   image,
   actElement,
 }: productCardProps) => {
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id, price }));
+    console.log(`${id} - ${title} - added succesfully`);
+  };
+
   return (
     <div className="product-card">
       <div className={`product-card__top `}>
@@ -38,7 +49,9 @@ const ProductCard = ({
           )}
           <div className="product-card__action">{actElement}</div>
         </div>
-        <div className="add-cart">Add To Cart</div>
+        <div className="add-cart" onClick={handleAddToCart}>
+          Add To Cart
+        </div>
       </div>
       <div className="product-card__bottom">
         <div className="product-title">

@@ -3,4 +3,11 @@ import AppRouter from "@routes/AppRouter";
 import "./main.css";
 import "./index.scss";
 
-createRoot(document.getElementById("root")!).render(<AppRouter />);
+import { Provider } from "react-redux";
+import { store } from "@store/index";
+
+createRoot(document.getElementById("root")!).render(
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);

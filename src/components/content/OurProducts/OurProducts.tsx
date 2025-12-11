@@ -6,11 +6,12 @@ import show from "@assets/show.svg?w=64&format=webp&quality=90";
 import "./OurProducts.scss";
 import ProductActBtn from "@components/common/ProductActBtn/ProductActBtn";
 import useVisitProduct from "@hooks/useVisitProduct";
-import { bestProducts } from "@util/MocupData";
-
-const products = bestProducts;
+import { useAppSelector } from "@store/hook";
 
 const OurProducts = () => {
+  const { products } = useAppSelector((state) => state.productsSlice);
+  const { itemsId } = useAppSelector((state) => state.wishSlice);
+
   const visit = useVisitProduct();
 
   return (
@@ -21,6 +22,7 @@ const OurProducts = () => {
           {products.map((product) => (
             <ProductCard
               key={product.id}
+              id={product.id}
               title={product.title}
               oldPrice={product.oldPrice}
               price={product.newPrice}
@@ -35,12 +37,15 @@ const OurProducts = () => {
                     alter="heart"
                     id={product.id}
                     action={visit}
+                    liked={itemsId.includes(product.id) ? true : false}
+                    type="like"
                   />
                   <ProductActBtn
                     image={show}
                     alter="eye"
                     id={product.id}
                     action={visit}
+                    type="visit"
                   />
                 </>
               }

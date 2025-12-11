@@ -5,4 +5,8 @@
   @apply bg-white  rounded-full flex items-center justify-center cursor-pointer hover:bg-red-400;
   width: 34px;
   height: 34px;
+
+  &.active {
+    background-color: $danger;
+  }
 }

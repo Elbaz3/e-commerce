@@ -2,39 +2,28 @@ import RowProduct from "@components/common/RowProduct/RowProduct";
 import "./Cart.scss";
 import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
 import SmallNav from "@components/common/SmallNav/SmallNav";
-import { useState } from "react";
-import { billingProducts } from "@util/MocupData";
+import { useAppDispatch, useAppSelector } from "@store/hook";
 
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  quantity: number;
-  image: string;
-};
-
-type QuantityState = {
-  [productId: number]: number;
-};
-
-const products = billingProducts;
+import { changeQuantity, deleteItem, cleanCart } from "@store/cart/cartSlice";
 
 const CartC = () => {
-  const initialQuantities: QuantityState = products.reduce(
-    (acc: QuantityState, p: Product) => {
-      acc[p.id] = p.quantity;
-      return acc;
-    },
-    {}
+  const { items, fullProductInfo, totalPrice } = useAppSelector(
+    (state) => state.cartReducer
   );
 
-  const [quantity, setQuantity] = useState<QuantityState>(initialQuantities);
+  const dispatch = useAppDispatch();
 
-  const handleChangeQ = (id: number, type: "inc" | "dec") => {
-    setQuantity((prev) => ({
-      ...prev,
-      [id]: type === "inc" ? prev[id] + 1 : Math.max(1, prev[id] - 1),
-    }));
+  const products = fullProductInfo.filter((pr) => items[pr.id]);
+
+  const handleChangeQ = (
+    id: number,
+    price: number | undefined,
+    type: string
+  ) => {
+    dispatch(changeQuantity({ id, price, type }));
+  };
+  const handleCleanCart = () => {
+    dispatch(cleanCart());
   };
 
   return (
@@ -69,25 +58,42 @@ const CartC = () => {
                     </span>
                   </span>
                 }
-                secondElement={<span>${product.price}</span>}
+                secondElement={<span>${product.newPrice}</span>}
                 thirdElement={
                   <span className="q-wrapper">
-                    <button onClick={() => handleChangeQ(product.id, "dec")}>
+                    <button
+                      onClick={() =>
+                        handleChangeQ(product.id, product.newPrice, "dec")
+                      }
+                    >
                       -
                     </button>
-                    <span>{quantity[product.id]}</span>
-                    <button onClick={() => handleChangeQ(product.id, "inc")}>
+                    <span>{items[product.id]}</span>
+                    <button
+                      onClick={() =>
+                        handleChangeQ(product.id, product.newPrice, "inc")
+                      }
+                    >
                       +
                     </button>
                   </span>
                 }
-                fourthElement={<span>${product.price * product.quantity}</span>}
+                fourthElement={
+                  <span>
+                    $
+                    {product.newPrice
+                      ? product.newPrice * items[product.id]
+                      : 0}
+                  </span>
+                }
               />
             ))}
           </div>
           <div className="cart-page__bag__footer">
             <ButtonPrim value="Return To Shop" to="/" />
-            <ButtonPrim value="Update Cart" to="/" />
+            <div className="button-primary" onClick={handleCleanCart}>
+              Update Cart{" "}
+            </div>
           </div>
         </div>
         <div className="cart-page__action">
@@ -101,12 +107,7 @@ const CartC = () => {
             <div className="cart-details-wrapper">
               <div className="detail">
                 <span className="key">Subtotal:</span>
-                <span className="value">
-                  {products.reduce(
-                    (total, item) => total + item.price * item.quantity,
-                    0
-                  )}
-                </span>
+                <span className="value">{totalPrice}</span>
               </div>
               <div className="detail">
                 <span className="key">Shipping:</span>
@@ -114,13 +115,7 @@ const CartC = () => {
               </div>
               <div className="detail">
                 <span className="key">Total:</span>
-                <span className="value">
-                  {" "}
-                  {products.reduce(
-                    (total, item) => total + item.price * item.quantity,
-                    0
-                  )}
-                </span>
+                <span className="value">{totalPrice}</span>
               </div>
             </div>
             <ButtonPrim value="Procees to checkout" to="/checkout" />

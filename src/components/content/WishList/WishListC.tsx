@@ -10,8 +10,9 @@ import SectionHeader from "@components/common/SectionHeader/SectionHeader";
 import ProductActBtn from "@components/common/ProductActBtn/ProductActBtn";
 import "./WishList.scss";
 import useVisitProduct from "@hooks/useVisitProduct";
+import { useAppSelector } from "@store/hook";
 
-const products = [
+const productsF = [
   {
     id: 1,
     title: "HAVIT HV-G92 Gamepad",
@@ -60,8 +61,13 @@ const products = [
 
 const WishListC = () => {
   const visit = useVisitProduct();
+  const { itemsId, productsFullInfo } = useAppSelector(
+    (state) => state.wishSlice
+  );
 
-  function deleteFromWish(id: number) {}
+  const products = productsFullInfo.filter((product) =>
+    itemsId.includes(product.id)
+  );
 
   return (
     <div className="wishlist">
@@ -75,6 +81,7 @@ const WishListC = () => {
             {products.map((product) => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 title={product.title}
                 price={product.newPrice}
                 discount={product.discount}
@@ -82,9 +89,10 @@ const WishListC = () => {
                 actElement={
                   <ProductActBtn
                     image={deleteP}
-                    alter="basket"
+                    alter="like"
                     id={product.id}
-                    action={deleteFromWish}
+                    action={visit}
+                    type="delete"
                   />
                 }
               />
@@ -94,11 +102,12 @@ const WishListC = () => {
         <div className="wishlist__products">
           <SectionHeader
             title="Just For You"
-            children={<ButtonPrim value="See All" />}
+            children={<ButtonPrim to="/" value="See All" />}
           />
           <div className="wishlist__products__body">
-            {products.map((product) => (
+            {productsF.map((product) => (
               <ProductCard
+                id={product.id}
                 key={product.id}
                 title={product.title}
                 price={product.newPrice}
@@ -111,6 +120,7 @@ const WishListC = () => {
                     id={product.id}
                     action={visit}
                     alter="show"
+                    type="visit"
                   />
                 }
               />

@@ -10,13 +10,20 @@ export const billingProducts = [
     price: 160,
     quantity: 3,
     image: img1,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
+
   {
     id: 2,
     title: "RGB Mechanical Keyboard",
     price: 120,
     quantity: 1,
     image: img2,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 3,
@@ -24,6 +31,9 @@ export const billingProducts = [
     price: 10,
     quantity: 2,
     image: img3,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 4,
@@ -31,6 +41,9 @@ export const billingProducts = [
     price: 130,
     quantity: 5,
     image: img4,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
 ];
 
@@ -44,6 +57,9 @@ export const bestProducts = [
     reviews: 88,
     stars: 5,
     image: img1,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 2,
@@ -54,6 +70,9 @@ export const bestProducts = [
     reviews: 134,
     stars: 4,
     image: img2,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 3,
@@ -64,6 +83,9 @@ export const bestProducts = [
     reviews: 212,
     stars: 5,
     image: img3,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 4,
@@ -74,6 +96,9 @@ export const bestProducts = [
     reviews: 76,
     stars: 4,
     image: img4,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 5,
@@ -84,6 +109,9 @@ export const bestProducts = [
     reviews: 180,
     stars: 4,
     image: img1,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 6,
@@ -94,6 +122,9 @@ export const bestProducts = [
     reviews: 98,
     stars: 5,
     image: img3,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 7,
@@ -104,6 +135,9 @@ export const bestProducts = [
     reviews: 67,
     stars: 4,
     image: img4,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
   {
     id: 8,
@@ -114,5 +148,8 @@ export const bestProducts = [
     reviews: 154,
     stars: 5,
     image: img2,
+    isLiked: true,
+    isAuthenticated: false,
+    userId: null,
   },
 ];

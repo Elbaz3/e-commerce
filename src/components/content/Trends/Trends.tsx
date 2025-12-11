@@ -10,11 +10,13 @@ import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
 import SlideButtons from "@components/common/SlideButtons/SlideButtons";
 import ProductActBtn from "@components/common/ProductActBtn/ProductActBtn";
 import useVisitProduct from "@hooks/useVisitProduct";
-import { bestProducts } from "@util/MocupData";
+import { useAppSelector } from "@store/hook";
 
-const products = bestProducts;
 const Trends = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
+
+  const { products } = useAppSelector((state) => state.productsSlice);
+  const { itemsId } = useAppSelector((state) => state.wishSlice);
 
   const Content = () => {
     return (
@@ -41,6 +43,7 @@ const Trends = () => {
             {products.map((product) => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 title={product.title}
                 oldPrice={product.oldPrice}
                 price={product.newPrice}
@@ -55,12 +58,15 @@ const Trends = () => {
                       alter="heart"
                       id={product.id}
                       action={visit}
+                      liked={itemsId.includes(product.id) ? true : false}
+                      type="like"
                     />
                     <ProductActBtn
                       image={show}
-                      alter="eye"
+                      alter="show"
                       id={product.id}
                       action={visit}
+                      type="visit"
                     />
                   </>
                 }
@@ -69,7 +75,7 @@ const Trends = () => {
           </div>
         </div>
         <div className="wrapper-btn ">
-          <ButtonPrim value={"View All Products"} />
+          <ButtonPrim to="/" value={"View All Products"} />
         </div>
       </div>
     </section>
