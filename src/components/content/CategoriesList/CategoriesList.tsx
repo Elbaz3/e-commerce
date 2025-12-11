@@ -11,14 +11,14 @@ const categories = [
   { image: "/images/smart-watch.svg", name: "Smart Watch" },
   { image: "/images/camera.svg", name: "Camera" },
   { image: "/images/headphone.svg", name: "Headphones" },
-  { image: "/images/assets/gaming.svg", name: "Gaming" },
+  { image: "/images/gaming.svg", name: "Gaming" },
 
   { image: "/images/phones.svg", name: "Phones" },
   { image: "/images/computers.svg", name: "Computers" },
   { image: "/images/smart-watch.svg", name: "Smart Watch" },
   { image: "/images/camera.svg", name: "Camera" },
   { image: "/images/headphone.svg", name: "Headphones" },
-  { image: "/images/assets/gaming.svg", name: "Gaming" },
+  { image: "/images/gaming.svg", name: "Gaming" },
 ];
 
 const CategoriesList = () => {

@@ -5,6 +5,7 @@ import authSlice from "./auth/authSlice";
 import wishSlice from "./wishList/wishListSlice";
 import placeOrderSlice from "./placeOrder/placeOrderSlice";
 import productsSlice from "./products/productsSlice";
+import { cartListener } from "./cart/cartListenerMiddleware";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     placeOrderSlice,
     productsSlice,
   },
+  middleware: (getDefault) => getDefault().prepend(cartListener.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
