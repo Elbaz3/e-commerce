@@ -38,6 +38,7 @@ const CartC = () => {
             secondElement={<span>Price</span>}
             thirdElement={<span>Quantity</span>}
             fourthElement={<span>Subtotal</span>}
+            classname="head-row"
           />
           <div className="cart-page__bag__content">
             {products.map((product, i) => (

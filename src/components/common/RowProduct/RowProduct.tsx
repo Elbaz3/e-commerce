@@ -6,6 +6,7 @@ interface RowProduct {
   secondElement: ReactNode;
   thirdElement: ReactNode;
   fourthElement: ReactNode;
+  classname?: string;
 }
 
 const RowProduct = ({
@@ -13,13 +14,14 @@ const RowProduct = ({
   secondElement,
   thirdElement,
   fourthElement,
+  classname,
 }: RowProduct) => {
   return (
-    <div className="row-product">
+    <div className={`row-product ${classname}`}>
       <div className="cart-col cart-col-1">{firstElement}</div>
-      <div className="cart-col cart-col-1">{secondElement}</div>
-      <div className="cart-col cart-col-1">{thirdElement}</div>
-      <div className="cart-col cart-col-1">{fourthElement}</div>
+      <div className="cart-col cart-col-2">{secondElement}</div>
+      <div className="cart-col cart-col-3">{thirdElement}</div>
+      <div className="cart-col cart-col-4">{fourthElement}</div>
     </div>
   );
 };
