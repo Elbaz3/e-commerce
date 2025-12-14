@@ -101,9 +101,7 @@ const router = createBrowserRouter([
 ]);
 const AppRouter = () => {
   return (
-    // <Suspense fallback={<PageSuspenseFallback />}>
     <RouterProvider router={router} />
-    // </Suspense>
   );
 };
 
