@@ -38,7 +38,7 @@ const BestSelling = () => {
                 id={product.id}
                 title={product.title}
                 oldPrice={product.oldPrice}
-                price={product.newPrice}
+                price={product.newPrice ? product.newPrice : 0}
                 discount={product.discount}
                 reviews={product.reviews}
                 stars={product.stars}
@@ -51,6 +51,7 @@ const BestSelling = () => {
                       id={product.id}
                       liked={itemsId.includes(product.id) ? true : false}
                       type="like"
+                      action={visit}
                     />
                     <ProductActBtn
                       image="/images/show.svg"

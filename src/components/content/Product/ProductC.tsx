@@ -6,6 +6,7 @@ import useVisitProduct from "@hooks/useVisitProduct";
 import ProductAction from "@components/common/ProductAction/ProductAction";
 import "./Product.scss";
 import SmallNav from "@components/common/SmallNav/SmallNav";
+import { useAppSelector } from "@store/hook";
 
 const product = {
   title: "",
@@ -62,6 +63,9 @@ const products = [
 ];
 
 const ProductC = () => {
+
+    const { itemsId } = useAppSelector((state) => state.wishSlice);
+  
   const visit = useVisitProduct();
   return (
     <div className="product-p">
@@ -106,6 +110,7 @@ const ProductC = () => {
                       alter="heart"
                       id={product.id}
                       action={visit}
+                      liked={itemsId.includes(product.id) ? true : false}
                       type="like"
                     />
                     <ProductActBtn
