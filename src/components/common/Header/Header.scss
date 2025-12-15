@@ -126,10 +126,23 @@
   }
 
   &__search {
-    @apply flex items-center px-5 rounded bg-[#f5f5f5];
+    @apply flex items-center px-5 rounded bg-[#f5f5f5] relative;
     min-width: 240px;
-    gap: 34px; // custom
+    gap: 34px; 
     padding-right: 12px;
+
+    &__list {
+      @apply  shadow-md  h-fit w-full top-full left-0 text-black absolute ;
+
+    z-index: 1000;
+    background-color: #f5f5f5;
+
+    ul {
+            @apply flex flex-col shadow-md  gap-3 h-fit w-full top-full left-0 text-black p-3;
+
+    }
+
+    }
 
     .search-box {
       @apply outline-0 py-[10px];

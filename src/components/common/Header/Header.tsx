@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 
 import "./Header.scss";
 import { useAppSelector } from "@store/hook";
+import { bestProducts } from "@util/MocupData";
 
 const Select = lazy(() =>
   import("antd/lib/select").then((m) => ({ default: m.default }))
@@ -10,10 +11,14 @@ const Select = lazy(() =>
 
 type Language = "en" | "ar";
 
+const products = bestProducts
+
 const Header = () => {
   const menu = useRef<HTMLDivElement | null>(null);
   const navItems = useRef<HTMLUListElement | null>(null);
   const [profileMenu, setProfileMenu] = useState(false);
+  const [searchList, setSearchList] = useState<string[]>([])
+
 
   const { pathname } = useLocation();
   const currentPage = pathname.split("/").pop();
@@ -21,6 +26,7 @@ const Header = () => {
   useEffect(() => {
     if (!menu.current) return;
     menu.current.classList.remove("show-menu");
+    setSearchList([])
   }, [pathname]);
 
   const handleShowIcon = () => {
@@ -124,7 +130,22 @@ const Header = () => {
                   type="text"
                   placeholder="What are you looking for?"
                   className="search-box"
+                  name= "search"
+                  onChange={(e) => e.target.value ? setSearchList(products.filter(product => product.title.toLowerCase().includes(e.target.value.toLowerCase())).map(item => item.title)) : setSearchList([])}
                 />
+                <div className="header__search__list">
+                  {searchList.length > 0 && (
+                    <ul>
+                      {searchList.map((item, index) => (
+                        <li key={index}>
+                          <Link to={`/product/`}>
+                            {item}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
 
                 <button className="search-icon" type="submit">
                   <img src="/images/search.svg" alt="search icon" />
