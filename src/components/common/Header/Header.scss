@@ -187,6 +187,10 @@ background-color: white;  }
     z-index: 1000;
     background: rgba(0, 0, 0, 1);
     display: none;
+    @media (max-width: $md) {
+      right: auto;
+      left: 0;
+    }
 
     &.active {
       display: flex;

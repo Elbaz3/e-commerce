@@ -138,7 +138,7 @@ const Header = () => {
                     <ul>
                       {searchList.map((item, index) => (
                         <li key={index}>
-                          <Link to={`/product/`}>
+                          <Link to={`/product`}>
                             {item}
                           </Link>
                         </li>
