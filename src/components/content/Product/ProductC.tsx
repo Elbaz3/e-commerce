@@ -82,31 +82,7 @@ const ProductC = () => {
               <img src={product.image} alt="" />
             </div>
           </div>
-          {/* <div className="product__overview__details flex flex-col gap-4">
-            <h3 className="product-title">Havic HV G-92 Gamepad</h3>
-            <div className="product-states flex">
-              <div className="stars"></div>
-              <div className="reviews">(3433)</div>
-              <span>|</span>
-              <div className="availability">in stock</div>
-            </div>
-            <div className="product-price">$8999</div>
-            <div className="product-description">
-              PlayStation 5 Controller Skin High quality vinyl with air channel
-              adhesive for easy bubble free install & mess free removal Pressure
-              sensitive.
-            </div>
-            <div className="product-custom">
-              <div className="colors">
-                <span>colors: </span>
-                <span>
-                  <input type="radio" name="" id="" />
-                  <input type="radio" name="" id="" />
-                </span>
-              </div>
-            </div>
-            <div className="product-more-details"></div>
-          </div> */}
+
           <ProductAction />
         </div>
         <div className="more-products">
@@ -114,6 +90,7 @@ const ProductC = () => {
           <div className="trends__products">
             {products.map((product) => (
               <ProductCard
+                id={product.id}
                 key={product.id}
                 title={product.title}
                 oldPrice={product.oldPrice}
@@ -129,12 +106,14 @@ const ProductC = () => {
                       alter="heart"
                       id={product.id}
                       action={visit}
+                      type="like"
                     />
                     <ProductActBtn
                       image="/images/show.svg"
                       alter="eye"
                       id={product.id}
                       action={visit}
+                      type="visit"
                     />
                   </>
                 }

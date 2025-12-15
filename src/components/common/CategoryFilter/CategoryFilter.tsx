@@ -61,7 +61,7 @@ const CategoryFilter = () => {
         className="border-none bg-transparent"
         onClick={({ key }) => navigate(`/categories/products/${key}`)}
         items={categories.map((item) => {
-          // If it has dropdown
+
           if (item.children) {
             return {
               key: item.key,

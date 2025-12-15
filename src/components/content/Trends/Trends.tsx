@@ -44,7 +44,7 @@ const Trends = () => {
                 id={product.id}
                 title={product.title}
                 oldPrice={product.oldPrice}
-                price={product.newPrice}
+                price={product.newPrice ? product.newPrice : 0}
                 discount={product.discount}
                 reviews={product.reviews}
                 stars={product.stars}
