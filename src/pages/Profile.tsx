@@ -1,5 +1,4 @@
-import EditProfile from "@components/content/EditProfile/EditProfile";
-import React from "react";
+import EditProfile from "@components/profile/EditProfile/EditProfile";
 
 const Profile = () => {
   return (

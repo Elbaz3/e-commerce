@@ -1,4 +1,4 @@
-import { Footer, Header } from "@components/common";
+import { Footer, Header } from "@components/layout";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {

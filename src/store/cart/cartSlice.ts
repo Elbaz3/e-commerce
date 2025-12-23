@@ -38,6 +38,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
+      
       const { id, price } = action.payload;
 
       if (state.items[id]) {

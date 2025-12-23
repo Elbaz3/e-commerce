@@ -1,11 +1,11 @@
-import ButtonPrim from "@components/common/ButtonPrim/ButtonPrim";
-import SmallNav from "@components/common/SmallNav/SmallNav";
+import ButtonPrim from "@components/shared/ButtonPrim/ButtonPrim";
+import Breadcrumb from "@components/shared/Breadcrumb/Breadcrumb";
 
 const Error = () => {
   return (
     <div className="error-page pt-20 pb-[140px]">
       <div className="container">
-        <SmallNav items={["Home", "Error"]} />
+        <Breadcrumb />
       </div>
       <div className="container flex flex-col gap-20 items-center h-screen  pt-60">
         <div className="error-head text-center">

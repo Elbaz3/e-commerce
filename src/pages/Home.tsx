@@ -1,17 +1,17 @@
-import CategoriesList from "@components/content/CategoriesList/CategoriesList";
-import Hero from "@components/content/Hero/Hero";
+import CategoriesList from "@components/home/CategoriesList/CategoriesList";
+import Hero from "@components/home/Hero/Hero";
 import { lazy, Suspense } from "react";
 import HomeSEO from "@components/helmets/HomeSeo";
 
-const Trends = lazy(() => import("@components/content/Trends/Trends"));
-const Feature = lazy(() => import("@components/content/Feature/Feature"));
-const Offer = lazy(() => import("@components/content/Offer/Offer"));
+const Trends = lazy(() => import("@components/home/Trends/Trends"));
+const Feature = lazy(() => import("@components/home/Feature/Feature"));
+const Offer = lazy(() => import("@components/home/Offer/Offer"));
 const OurProducts = lazy(
-  () => import("@components/content/OurProducts/OurProducts")
+  () => import("@components/home/OurProducts/OurProducts")
 );
 
 const BestSelling = lazy(
-  () => import("@components/content/BestSelling/BestSelling")
+  () => import("@components/home/BestSelling/BestSelling")
 );
 
 const Home = () => {
