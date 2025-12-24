@@ -1,9 +1,9 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-
-import "./Header.scss";
-import { useAppSelector } from "@store/hook";
+import { setLang } from "@store/Language/languageSlice";
+import { useAppDispatch, useAppSelector } from "@store/hook";
 import { bestProducts } from "@util/MocupData";
+import "./Header.scss";
 
 const Select = lazy(() =>
   import("antd/lib/select").then((m) => ({ default: m.default }))
@@ -18,6 +18,9 @@ const Header = () => {
   const navItems = useRef<HTMLUListElement | null>(null);
   const [profileMenu, setProfileMenu] = useState(false);
   const [searchList, setSearchList] = useState<string[]>([]);
+  const lang = useAppSelector((state) => state.langSlice.lang);
+
+  const dispatch = useAppDispatch();
 
   const { pathname } = useLocation();
   const currentPage = pathname.split("/").pop();
@@ -36,6 +39,7 @@ const Header = () => {
   const handleChange = (value: string) => {
     const lang = value as Language;
     console.log("Selected language:", lang);
+    dispatch(setLang(lang));
   };
 
   const likedCount = useAppSelector((state) => state.wishSlice.itemsId.length);
@@ -62,7 +66,7 @@ const Header = () => {
 
           <Suspense fallback={<div style={{ width: 92 }} />}>
             <Select
-              defaultValue="en"
+              defaultValue={lang}
               style={{ width: 92 }}
               onChange={handleChange}
               className="header__top__select lang-select"

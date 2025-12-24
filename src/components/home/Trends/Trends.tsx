@@ -3,18 +3,28 @@ import "./Trends.scss";
 import CountDown from "@components/common/CountDown/CountDown";
 import ProductCard from "@components/shared/ProductCard/ProductCard";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ButtonPrim from "@components/shared/ButtonPrim/ButtonPrim";
 import SlideButtons from "@components/common/SlideButtons/SlideButtons";
 import ProductActBtn from "@components/shared/ProductActBtn/ProductActBtn";
 import useVisitProduct from "@hooks/useVisitProduct";
 import { useAppSelector } from "@store/hook";
 
+const headerTitiles = {
+  en: { title: "Today's", subTitle: "Flash Sales" },
+  ar: { title: "عروض", subTitle: "اليوم" },
+};
+
 const Trends = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const { products } = useAppSelector((state) => state.productsSlice);
   const { itemsId } = useAppSelector((state) => state.wishSlice);
+  const lang = useAppSelector((state) => state.langSlice.lang);
+
+  useEffect(() => {
+    console.log(lang);
+  }, [lang]);
 
   const Content = () => {
     return (
@@ -32,8 +42,8 @@ const Trends = () => {
     <section className="trends">
       <div className="container trends__container">
         <SectionHeader
-          title="Today's"
-          subTitle="Flash Sales"
+          title={headerTitiles[lang as keyof typeof headerTitiles].title}
+          subTitle={headerTitiles[lang as keyof typeof headerTitiles].subTitle}
           children={<Content />}
         />
         <div ref={sliderRef} className="wrapper overflow-x-auto scrollbar-hide">

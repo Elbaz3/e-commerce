@@ -5,6 +5,7 @@ import authSlice from "./auth/authSlice";
 import wishSlice from "./wishList/wishListSlice";
 import placeOrderSlice from "./placeOrder/placeOrderSlice";
 import productsSlice from "./products/productsSlice";
+import langSlice from "./Language/languageSlice";
 import { cartListener } from "./cart/cartListenerMiddleware";
 
 export const store = configureStore({
@@ -14,6 +15,7 @@ export const store = configureStore({
     wishSlice,
     placeOrderSlice,
     productsSlice,
+    langSlice,
   },
   middleware: (getDefault) => getDefault().prepend(cartListener.middleware),
 });
