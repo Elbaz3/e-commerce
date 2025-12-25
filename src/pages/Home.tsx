@@ -2,6 +2,7 @@ import CategoriesList from "@components/home/CategoriesList/CategoriesList";
 import Hero from "@components/home/Hero/Hero";
 import { lazy, Suspense } from "react";
 import HomeSEO from "@components/helmets/HomeSeo";
+import { useAppSelector } from "@store/hook";
 
 const Trends = lazy(() => import("@components/home/Trends/Trends"));
 const Feature = lazy(() => import("@components/home/Feature/Feature"));
@@ -15,11 +16,13 @@ const BestSelling = lazy(
 );
 
 const Home = () => {
+  const lang = useAppSelector((state) => state.langSlice.lang);
+
   return (
     <>
       <HomeSEO />
       <Hero />
-      <Trends />
+      <Trends lang={lang} />
 
       <CategoriesList />
 

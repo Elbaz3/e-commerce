@@ -69,7 +69,7 @@ const ProductC = () => {
   return (
     <div className="product-p">
       <div className="container">
-        <SmallNav items={["Account", "Gaming", "Havic HV G-92 Gamepad"]} />
+        <SmallNav />
       </div>
       <div className="container product-p__container">
         <div className="product-p__overview ">

@@ -1,30 +1,25 @@
 import SectionHeader from "@components/shared/SectionHeader/SectionHeader";
-import "./Trends.scss";
 import CountDown from "@components/common/CountDown/CountDown";
 import ProductCard from "@components/shared/ProductCard/ProductCard";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import useVisitProduct from "@hooks/useVisitProduct";
+import { useAppSelector } from "@store/hook";
 import ButtonPrim from "@components/shared/ButtonPrim/ButtonPrim";
 import SlideButtons from "@components/common/SlideButtons/SlideButtons";
 import ProductActBtn from "@components/shared/ProductActBtn/ProductActBtn";
-import useVisitProduct from "@hooks/useVisitProduct";
-import { useAppSelector } from "@store/hook";
+import "./Trends.scss";
 
 const headerTitiles = {
   en: { title: "Today's", subTitle: "Flash Sales" },
   ar: { title: "عروض", subTitle: "اليوم" },
 };
 
-const Trends = () => {
+const Trends = ({ lang }: { lang: string }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const { products } = useAppSelector((state) => state.productsSlice);
   const { itemsId } = useAppSelector((state) => state.wishSlice);
-  const lang = useAppSelector((state) => state.langSlice.lang);
-
-  useEffect(() => {
-    console.log(lang);
-  }, [lang]);
 
   const Content = () => {
     return (

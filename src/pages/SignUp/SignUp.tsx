@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import "./SignUp.scss";
 import ButtonPrim from "@components/shared/ButtonPrim/ButtonPrim";
 import { signupSchema } from "@util/schemas";
+import "./SignUp.scss";
 
 const schema = signupSchema;
 
