@@ -1,13 +1,10 @@
-// src/store/langSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-// Helper to get language from cookie
 const getLangFromCookie = () => {
   const match = document.cookie.match(/(^| )lang=([^;]+)/);
-  return match ? match[2] : "en"; // default to 'en'
+  return match ? match[2] : "en";
 };
 
-// Helper to set language in cookie
 const setLangCookie = (lang: string) => {
   document.cookie = `lang=${lang}; path=/; max-age=${7 * 24 * 60 * 60}`;
 };
