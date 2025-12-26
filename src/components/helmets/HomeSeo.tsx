@@ -1,14 +1,15 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const HomeSEO = () => {
   return (
     <Helmet>
-      {/* Basic SEO */}
       <title>Exclusive Store – Flash Sales, Top Brands & Best Deals</title>
+
       <meta
         name="description"
-        content="Shop flash sales, top electronics, fashion, home essentials, and exclusive offers. Discover Apple, Samsung, Sony products and more at unbeatable prices."
+        content="Shop flash sales, top electronics, fashion, home essentials, and exclusive offers."
       />
+
       <link rel="canonical" href="https://website.com/" />
 
       <meta
@@ -17,7 +18,7 @@ const HomeSEO = () => {
       />
       <meta
         property="og:description"
-        content="Explore today's flash sales, top trending products, and limited music experience offers. Shop Apple, Samsung & more."
+        content="Explore today's flash sales and top trending products."
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://website.com/" />
@@ -27,14 +28,9 @@ const HomeSEO = () => {
       <meta name="twitter:title" content="Exclusive Store – Best Deals Today" />
       <meta
         name="twitter:description"
-        content="Discover trending products, discounts, and exclusive limited-time offers."
+        content="Discover trending products and discounts."
       />
       <meta name="twitter:image" content="https://website.com/og-image.jpg" />
-
-      <meta
-        name="keywords"
-        content="flash sales, electronics deals, fashion, Apple iPhone offers, Samsung Galaxy, online shopping"
-      />
     </Helmet>
   );
 };
