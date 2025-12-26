@@ -36,10 +36,10 @@ const Header = () => {
     menu.current.classList.toggle("show-menu");
   };
 
-  const handleChange = (value: string) => {
-    const lang = value as Language;
-    console.log("Selected language:", lang);
-    dispatch(setLang(lang));
+  const handleChange: (value: unknown) => void = (value) => {
+    if (value === "en" || value === "ar") {
+      dispatch(setLang(value));
+    }
   };
 
   const likedCount = useAppSelector((state) => state.wishSlice.itemsId.length);

@@ -6,7 +6,7 @@ export const cartListener = createListenerMiddleware();
 
 cartListener.startListening({
   actionCreator: addToCart,
-  effect: async (action) => {
+  effect: async () => {
     toast.success("Item added to cart! 🎉");
   },
 });

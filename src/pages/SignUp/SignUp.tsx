@@ -7,11 +7,7 @@ import "./SignUp.scss";
 const schema = signupSchema;
 
 const SignUpC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register } = useForm({
     resolver: yupResolver(schema),
   });
 

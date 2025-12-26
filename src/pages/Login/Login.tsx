@@ -8,11 +8,7 @@ import { loginSchema } from "@util/schemas";
 const schema = loginSchema;
 
 const LogInC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register } = useForm({
     resolver: yupResolver(schema),
   });
 
