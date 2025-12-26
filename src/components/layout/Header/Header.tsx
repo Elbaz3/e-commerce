@@ -9,8 +9,6 @@ const Select = lazy(() =>
   import("antd/lib/select").then((m) => ({ default: m.default }))
 );
 
-type Language = "en" | "ar";
-
 const products = bestProducts;
 
 const Header = () => {
